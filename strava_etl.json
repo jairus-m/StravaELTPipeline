@@ -1,0 +1,11 @@
+    "project_name": "strava_etl",
+    "repo_name": "{{ strava_etl.project_name.lower().replace(' ', '_') 
+}}",
+    "database": "test_name",
+    "db_username": "postgres",
+    "db_password": "admin",
+    "logfile": "strave_etl_log.log",
+    "author_name": "Jairus Martinez",
+    "description": "Sample ETL project to test/model Y's ETL.",
+    "version": "0.1.0"
+}
