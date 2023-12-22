@@ -6,9 +6,16 @@ Date: 12/21/2023
 """
 import unittest
 import pandas as pd
-from extract import Extract
+from src.nodes.extract import Extract
 
-df = Extract().strava_extract()
+# Create an instance of Extract
+ExtractClass = Extract()
+
+# Call the instance method on the instance
+df = ExtractClass.strava_extract()
+
+# Persist the raw data to test_data/raw
+df.to_csv('test_data/raw/strava_raw.csv')
 
 class TestExtract(unittest.TestCase):
     """
