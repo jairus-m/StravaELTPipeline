@@ -1,8 +1,15 @@
-import os
+"""
+Utils Module:
+
+Author: Jairus Martinez
+Date: 12/21/2023
+
+This module contains any utility functions needed for ETL code.
+"""
 import logging
 
 
-def createLoggerInstance(absPath : str):
+def create_logger_instance(abs_path : str):
     """
     Creates logging instance (default='DEBUG').
     Args:
@@ -15,11 +22,12 @@ def createLoggerInstance(absPath : str):
     logger.setLevel(logging.DEBUG)
 
     # Create a file handler
-    handler = logging.FileHandler('./strava_etl_log.log', 'w')
+    handler = logging.FileHandler(abs_path, 'w')
     handler.setLevel(logging.DEBUG)
 
     # Create a formatter and set the formatter for the handler
-    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(lineno)d - %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(lineno)d - %(message)s', \
+                                  datefmt='%Y-%m-%d %H:%M:%S')
     handler.setFormatter(formatter)
 
     # Add the handler to the logger
