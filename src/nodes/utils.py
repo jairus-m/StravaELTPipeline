@@ -15,8 +15,7 @@ def createLoggerInstance(absPath : str):
     logger.setLevel(logging.DEBUG)
 
     # Create a file handler
-    relPathToLogger = getRelativePath(absPath)
-    handler = logging.FileHandler(relPathToLogger, 'w')
+    handler = logging.FileHandler('./strava_etl_log.log', 'w')
     handler.setLevel(logging.DEBUG)
 
     # Create a formatter and set the formatter for the handler
@@ -27,16 +26,3 @@ def createLoggerInstance(absPath : str):
     logger.addHandler(handler)
 
     return logger
-
-
-def getRelativePath(absPath : str):
-    """
-    Returns the relative path given the absolute path.
-    Args:
-        absPath (str) : absolute path
-    Returns
-        relPath (str) : relative path
-    """
-    current_dir = os.getcwd()
-    relPath = os.path.relpath(absPath, current_dir)
-    return relPath
