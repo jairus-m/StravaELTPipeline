@@ -37,7 +37,7 @@ class TestExtract(unittest.TestCase):
         """
         self.assertIsInstance(df, pd.DataFrame)
 
-Create an instance of Transform
+# Create an instance of Transform
 Transform = transform.Transform()
 
 df_transform = Transform.process_data(df=pd.read_csv('../test_data/raw/strava_raw.csv'))
