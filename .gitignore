@@ -3,3 +3,6 @@ config.py
 
 # Ignore all files with .log extension
 *.log
+
+# Ignore test_data dir
+test_data
