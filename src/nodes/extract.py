@@ -9,7 +9,7 @@ import pandas as pd
 import numpy as np
 import requests
 import utils
-from src import config
+import config
 
 # create logger instance
 logging = utils.create_logger_instance(

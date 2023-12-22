@@ -1,16 +1,26 @@
+"""
+ETL Pipeline Tests
+
+Author: Jairus Martinez
+Date: 12/21/2023
+"""
 import unittest
 import pandas as pd
-from src.nodes.extract import Extract
+from extract import Extract
 
-df = Extract.strava_extract()
+df = Extract().strava_extract()
 
 class TestExtract(unittest.TestCase):
-    def testIsDataFrame(self):
+    """
+    Test suite for Extract class:
+    Tests:
+        test_is_dataframe : test for type(pd.DataFrame)
+    """
+    def test_is_dataframe(self):
         """
         Tests to see if the output of Extract.strava_extract()
         is a dataframe.
         """
-        
         self.assertEqual(type(df), type(pd.DataFrame))
 
 if __name__ == '__main__':
