@@ -9,11 +9,12 @@ This module contains any utility functions needed for ETL code.
 import logging
 
 
-def create_logger_instance(abs_path : str):
+def create_logger_instance(abs_path : str, mode: str):
     """
     Creates logging instance (default='DEBUG').
     Args:
         absPath (str): absolute path to log file
+        mode (str) : mode param for logging.FileHandler
     Returns:
         logger: logging instance
     """
@@ -22,7 +23,7 @@ def create_logger_instance(abs_path : str):
     logger.setLevel(logging.DEBUG)
 
     # Create a file handler
-    handler = logging.FileHandler(abs_path, 'w')
+    handler = logging.FileHandler(abs_path, mode=mode)
     handler.setLevel(logging.DEBUG)
 
     # Create a formatter and set the formatter for the handler

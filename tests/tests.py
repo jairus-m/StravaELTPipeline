@@ -4,18 +4,26 @@ ETL Pipeline Tests
 Author: Jairus Martinez
 Date: 12/21/2023
 """
+import sys
 import unittest
 import pandas as pd
-from src.nodes.extract import Extract
+sys.path.append('../')
+from src.nodes import extract, utils
+
+logging = utils.create_logger_instance(
+    abs_path='../logs/strava_etl_log.log',
+    mode='a'
+    )
 
 # Create an instance of Extract
-ExtractClass = Extract()
+ExtractClass = extract.Extract()
 
 # Call the instance method on the instance
 df = ExtractClass.strava_extract()
 
 # Persist the raw data to test_data/raw
-df.to_csv('test_data/raw/strava_raw.csv')
+df.to_csv('../test_data/raw/strava_raw.csv')
+logging.debug('Raw data persisted to ../tests/test_data/strava_raw.csv')
 
 class TestExtract(unittest.TestCase):
     """
