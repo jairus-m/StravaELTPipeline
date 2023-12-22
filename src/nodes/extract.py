@@ -6,7 +6,7 @@ import config
 import utils
 
 # create logger instance
-logging = utils.createLoggerInstance()
+logging = utils.createLoggerInstance(absPath='/Users/jairusmartinez/Desktop/strava_etl/strava_etl_log.log')
 
 class Extract():
     def __init__(self):
