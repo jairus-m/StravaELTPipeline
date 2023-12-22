@@ -21,7 +21,7 @@ class TestExtract(unittest.TestCase):
         Tests to see if the output of Extract.strava_extract()
         is a dataframe.
         """
-        self.assertEqual(type(df), type(pd.DataFrame))
+        self.assertIsInstance(df, pd.DataFrame)
 
 if __name__ == '__main__':
     unittest.main()

@@ -13,7 +13,7 @@ import config
 
 # create logger instance
 logging = utils.create_logger_instance(
-    abs_path='/Users/jairusmartinez/Desktop/strava_etl/strava_etl_log.log'
+    abs_path='strava_etl_log.log'
     )
 
 class Extract():
