@@ -1,6 +1,5 @@
 import unittest
 import pandas as pd
-import sys
 from src.nodes.extract import Extract
 
 df = Extract.strava_extract()
