@@ -1,5 +1,5 @@
 # Ignore specific file(s)
-config.py
+/src/config.py
 
 # Ignore all files with .log extension
 *.log
