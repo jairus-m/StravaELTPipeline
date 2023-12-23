@@ -11,4 +11,5 @@ COPY ./test_data ./test_data
 
 RUN pip install -r requirements.txt
 
+CMD cd tests
 CMD python tests/tests.py

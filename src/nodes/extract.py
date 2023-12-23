@@ -37,11 +37,11 @@ class Extract():
             pandas dataframe
         """
 
-        logging.debug("Requesting Token...\n")
+        logging.info("Requesting Token...\n")
         res = requests.post(config.STAVA_AUTH_URL,data=config.STRAVA_PAYLOAD,
                             verify=False, timeout=(10,10))
         access_token = res.json()['access_token']
-        logging.debug("Access Token = %s", access_token)
+        logging.info("Access Token = %s", access_token)
 
         header = {'Authorization': 'Bearer ' + access_token}
         # set number of pages to read through
@@ -49,7 +49,7 @@ class Extract():
         # save data into list
         all_activities = []
 
-        logging.debug('Importing data...')
+        logging.info('Importing data...')
 
         # read in 200 activities per page
         for request_page_number in page_list:
@@ -60,10 +60,10 @@ class Extract():
                 ) 
             if len(all_activities) == 0:
                 all_activities = my_dataset
-                logging.debug('Copying Page: %s', request_page_number)
+                logging.info('Copying Page: %s', request_page_number)
             else:
                 all_activities.extend(my_dataset)
-                logging.debug('Copying Page: %s', request_page_number)
+                logging.info('Copying Page: %s', request_page_number)
             
-        logging.debug('Data imported succesfully!')
+        logging.info('Data imported succesfully!')
         return pd.json_normalize(all_activities)
