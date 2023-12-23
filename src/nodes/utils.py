@@ -6,6 +6,7 @@ Date: 12/21/2023
 
 This module contains any utility functions needed for the ETL code.
 """
+import sys
 import logging
 
 def create_logger_instance(abs_path : str, mode: str):
@@ -30,8 +31,12 @@ def create_logger_instance(abs_path : str, mode: str):
                                   datefmt='%Y-%m-%d %H:%M:%S')
     handler.setFormatter(formatter)
 
-    # Add the handler to the logger
+    console_handler = logging.StreamHandler(sys.stdout)
+    console_handler.setFormatter(formatter)
+
+    # Add the handlers to the logger
     logger.addHandler(handler)
+    logger.addHandler(console_handler)
 
     return logger
 
