@@ -43,7 +43,7 @@ class Transform():
                     'from_accepted_tag', 'total_photo_count', 'athlete.id',
                     'athlete.resource_state', 'map.id', 'map.summary_polyline',
                     'map.resource_state', 'device_watts', 'workout_type']
-        logging.debug('Dropped cols...')
+        logging.info('Dropped cols...')
         
         df = df.drop(columns=cols_to_drop)
 
@@ -52,19 +52,19 @@ class Transform():
         df['moving_time'] = sec_to_min(df['moving_time'])
         df['elapsed_time'] = sec_to_min(df['elapsed_time'])
         df['total_elevation_gain'] = meters_to_feet(df['total_elevation_gain'])
-        logging.debug('Converted distance units.')
+        logging.info('Converted distance units.')
 
         # convert speed units
         df['average_speed'] = mps_to_mph(df['average_speed'])
         df['max_speed'] = mps_to_mph(df['max_speed'])
-        logging.debug('Converted speed units.')
+        logging.info('Converted speed units.')
 
         df['elev_high'] = meters_to_feet(df['elev_high'])
         df['elev_low'] = meters_to_feet(df['elev_low'])
-        logging.debug('Converted elevation units.')
+        logging.info('Converted elevation units.')
 
         # create time bins
-        df['date'] = df['start_date_local'].astype('datetime64')
+        df['date'] = pd.to_datetime(df['start_date_local']).dt.tz_localize(None)
         df = df.drop(columns='start_date_local')
         df['time'] = df['date'].dt.hour
         df['time_bins'] = pd.cut(
@@ -73,7 +73,7 @@ class Transform():
             labels=['12am-4am', '4am-8am', '8am-12pm', '12pm-4pm', '4pm-8pm', '8pm-12am'],
             ordered=True
         )
-        logging.debug('Created time bins.')
+        logging.info('Created time bins.')
 
         return df
     

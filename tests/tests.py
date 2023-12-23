@@ -22,7 +22,7 @@ df = ExtractClass.strava_extract()
 
 # Persist the raw data to test_data/raw
 df.to_csv('../test_data/raw/strava_raw.csv', index=False)
-logging.debug('Raw data persisted to ../tests/test_data/strava_raw.csv')
+logging.info('Raw data persisted to ../test_data/raw/strava_raw.csv')
 
 class TestExtract(unittest.TestCase):
     """
@@ -62,6 +62,9 @@ class TestTransform(unittest.TestCase):
        'kilojoules', 'max_watts', 'weighted_average_watts', 'date', 'time',
        'time_bins']
         self.assertCountEqual(df_transform.columns.tolist(), expected_cols)
+
+df_transform.to_csv('../test_data/processed/strava_data.csv', index=False)
+logging.info('Transformed data persisted to ../test_data/processed/strava_data.csv')
 
 if __name__ == '__main__':
     unittest.main()
