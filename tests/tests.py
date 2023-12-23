@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 ETL Pipeline Tests
 
