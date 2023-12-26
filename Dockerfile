@@ -11,5 +11,6 @@ COPY ./test_data ./test_data
 
 RUN pip install -r requirements.txt
 
-CMD cd tests
-CMD python tests/tests.py
+ENV PYTHONPATH "${PYTHONPATH}:/strava_etl"
+
+CMD cd tests && python tests.py
