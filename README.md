@@ -22,9 +22,7 @@ Strava API --> Python --> BigQuery
 - Dockerization via Docker
 
 ### Folder structure
-configs : py file with API tokens, db user/password
-docs : documentation 
-logs : logging files
-src : source code
-test_data : raw, processed, test data
-tests : unit tests
+- configs : py file with API tokens, db user/password
+- logs : logging files
+- src : source code
+- tests : unit tests
