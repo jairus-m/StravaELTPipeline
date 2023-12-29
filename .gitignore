@@ -6,3 +6,6 @@ config.py
 
 # Ignore test_data dir
 test_data
+
+# Jupyter
+*.ipynb
