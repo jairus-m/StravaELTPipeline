@@ -1,9 +1,6 @@
 # Ignore specific file(s)
 config.py
 
-# Ignore all files with .log extension
-*.log
-
 # Ignore test_data dir
 test_data
 
@@ -12,5 +9,3 @@ test_data
 
 #  YML configs
 *.yml
-
-strava-activity-a89feec552bf.json
