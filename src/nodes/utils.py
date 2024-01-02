@@ -6,93 +6,122 @@ Date: 12/21/2023
 
 This module contains any utility functions needed for the ETL code.
 """
-import sys
 import logging
+from google.cloud import bigquery
+import pyarrow
 
-def create_logger_instance(abs_path : str, mode: str):
-    """
-    Creates logging instance (default='DEBUG').
-    Args:
-        absPath (str): absolute path to log file
-        mode (str) : mode param for logging.FileHandler
-    Returns:
-        logger: logging instance
-    """
-    # Create a logger instance
-    logger = logging.getLogger()
-    logger.setLevel(logging.DEBUG)
+class StravaAPIConnector():
+    """Class for interacting with Strava API"""
+    def __init__(self, strava_auth_url: str, strava_activities_url: str, strava_payload: dict):
+        """
+        Constructor for StravaAPIConnector class
 
-    # Create a file handler
-    handler = logging.FileHandler(abs_path, mode=mode)
-    handler.setLevel(logging.DEBUG)
+        :param strava_auth_url: strava authorization url
+        :param strava_activities_url: strava athlete activities url
+        :param strava_payload: dict containing client_id, client_secret, refresh_token, grant_type, f
+        """
+        self.strava_auth_url = strava_auth_url
+        self.strava_activities_url = strava_activities_url
+        self.strava_payload = strava_payload
+        self._logger = logging.getLogger(__name__)
 
-    # Create a formatter and set the formatter for the handler
-    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(lineno)d - %(message)s', \
-                                  datefmt='%Y-%m-%d %H:%M:%S')
-    handler.setFormatter(formatter)
+class BigQueryConnector():
+    """Class for interacting with BigQuery data wharehouse"""
+    def __init__(self, service_account_json: dict, location: str = 'US', timeout: int = 30):
+        """
+        Constructor for BigQueryConnector class
 
-    console_handler = logging.StreamHandler(sys.stdout)
-    console_handler.setFormatter(formatter)
+        :param service_account_json: Google service account credentials/meta
+        :param location: location of cloud dataset [default = 'US']
+        :param timeout: timeout param for dataset_ref   
+        """
+        self.service_account_json = service_account_json
+        self.location = location
+        self.timeout = timeout
+        # initialize GCS client
+        self.client = bigquery.Client.from_service_account_info(service_account_json)
 
-    # Add the handlers to the logger
-    logger.addHandler(handler)
-    logger.addHandler(console_handler)
+    def create_dataset(self, dataset_id: str, dataset_desciption: str):
+        """
+        Method to create a new dataset in BigQuery
 
-    return logger
+        :param dataset_id: 'project.dataset' referring to dataset within project   
+        :param dataset_description: description of dataset
+        """
+        # create dataset
+        dataset = bigquery.Dataset(dataset_id)
 
-def sec_to_min(x : float):
-    """
-    Converts seconds to minutes.
-    Args:
-        x (float) : seconds
-    Returns:
-        minutes (float) : minutes
-    """
-    minutes =  x / 60
-    return round(minutes,2)
+        dataset.location = self.location
+        dataset.description = dataset_desciption
+        # upload dataset
+        self.client.create_dataset(dataset, timeout=self.timeout)
+        return True
 
-def meters_to_miles(x : float):
-    """
-    Converts meters to miles.
-    Args:
-        x (float) : meters
-    Returns:
-        miles (float) : miles
-    """
-    miles = x / 1609.344 
-    return round(miles, 2)
+    def upload_table(self, table_id: str, df):
+        """
+        Method to upload a table to dataset in project
 
-def meters_to_feet(x):
-    """
-    Converts meters to feet.
-    Args:
-        x (float) : meters
-    Returns:
-        feet (float) : feet
-    """
-    feet = x * 3.28084
-    return round(feet, 2)
+        :param table_id: 'project.dataset.table' referring to table within dataset within project
+        :param df: pd.DataFrame containing dataframe to upload into table
+        """
+        # create table for upload
+        job = self.client.load_table_from_dataframe(df, table_id)
+        # upload table to dataset
+        job.result()
 
-def mps_to_mph(x):
-    """
-    Converts meters per second (mpd) to 
-    miles per hour (mph).
-    Args
-        x (float) : meters per second
-    Returns
-        mph (float) : miles per hour
-    """
-    mph = x * 2.23694
-    return round(mph, 2)    
+        return True
 
-def drop_cols(df, cols_to_drop : list):
-    """
-    Takes a list of column names and drops them from 
-    pd.DataFrame.
-    Args:
-        df (pd.DataFrame) : input dataframe
-        cols_to_drop (list) : list of column string names 
-    Returns: 
-        df (pd.DataFrame) : dataframe with dropped cols
-    """
-    return df.drop(columns=cols_to_drop)
+class UnitConversion():
+    """Class to convert units in Strava Data"""
+    def __init__(self, x : float):
+        """
+        Class constructor for UnitConversion.
+
+        :param x: float number to convert
+        """
+        self.x = x
+
+    def sec_to_min(self):
+        """
+        Converts seconds to minutes.
+
+        :param x: seconds
+        :return minutes: minutes
+        :rtype minutes: float
+        """
+        minutes =  self.x / 60
+        return round(minutes,2)
+
+    def meters_to_miles(self):
+        """
+        Converts meters to miles.
+
+        :param x: meters
+        :return miles: miles
+        :rtype: float
+        """
+        miles = self.x / 1609.344
+        return round(miles, 2)
+
+    def meters_to_feet(self):
+        """
+        Converts meters to feet.
+
+        :param x: meters
+        :return feet: feet
+        :rtype: float
+        """
+        feet = self.x * 3.28084
+        return round(feet, 2)
+
+    def mps_to_mph(self):
+        """
+        Converts meters per second (mpd) to 
+        miles per hour (mph).
+
+        :param x: meters per second
+        :return mph: miles per hour
+        :rtype: float 
+        """
+        mph = self.x * 2.23694
+        return round(mph, 2)    
