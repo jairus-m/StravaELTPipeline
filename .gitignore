@@ -9,3 +9,8 @@ test_data
 
 # Jupyter
 *.ipynb
+
+#  YML configs
+*.yml
+
+strava-activity-a89feec552bf.json
