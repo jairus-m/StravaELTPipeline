@@ -56,3 +56,32 @@ Strava Transformer - 2024-01-02 17:14:19,698 - INFO - Importing data...
 Strava Transformer - 2024-01-02 17:14:21,618 - INFO - Copying Page: 1
 Strava Transformer - 2024-01-02 17:14:21,619 - INFO - Data imported succesfully!
 Strava Transformer - 2024-01-02 17:14:21,628 - INFO - Uploading table to BigQuery...
+Strava Transformer - 2024-01-02 17:29:30,960 - INFO - Starting EL job.
+Strava Transformer - 2024-01-02 17:29:59,529 - INFO - Starting EL job.
+Strava Transformer - 2024-01-02 17:29:59,529 - INFO - Requesting Token...
+
+Strava Transformer - 2024-01-02 17:29:59,939 - INFO - Access Token = 97a5d3d3bc8c9ac708be151f2ae32a6a572f61da
+Strava Transformer - 2024-01-02 17:29:59,940 - INFO - Importing data...
+Strava Transformer - 2024-01-02 17:30:02,134 - INFO - Copying Page: 1
+Strava Transformer - 2024-01-02 17:30:02,134 - INFO - Data imported succesfully!
+Strava Transformer - 2024-01-02 17:30:03,538 - INFO - Data up to date!
+Strava Transformer - 2024-01-02 17:30:03,538 - INFO - Uploaded table to BigQuery!
+Strava Transformer - 2024-01-02 17:30:03,538 - INFO - Uploaded table to BigQuery!
+Strava Transformer - 2024-01-02 17:30:41,340 - INFO - Starting EL job.
+Strava Transformer - 2024-01-02 17:30:41,341 - INFO - Requesting Token...
+
+Strava Transformer - 2024-01-02 17:30:41,695 - INFO - Access Token = 97a5d3d3bc8c9ac708be151f2ae32a6a572f61da
+Strava Transformer - 2024-01-02 17:30:41,696 - INFO - Importing data...
+Strava Transformer - 2024-01-02 17:30:43,291 - INFO - Copying Page: 1
+Strava Transformer - 2024-01-02 17:30:43,291 - INFO - Data imported succesfully!
+Strava Transformer - 2024-01-02 17:30:44,415 - INFO - Data up to date!
+Strava Transformer - 2024-01-02 17:30:44,415 - INFO - EL job complete.
+Strava Transformer - 2024-01-02 17:33:11,214 - INFO - Starting EL job.
+Strava Transformer - 2024-01-02 17:33:11,214 - INFO - Requesting Token...
+
+Strava Transformer - 2024-01-02 17:33:11,609 - INFO - Access Token = 97a5d3d3bc8c9ac708be151f2ae32a6a572f61da
+Strava Transformer - 2024-01-02 17:33:11,610 - INFO - Importing data...
+Strava Transformer - 2024-01-02 17:33:14,615 - INFO - Copying Page: 1
+Strava Transformer - 2024-01-02 17:33:14,616 - INFO - Data imported succesfully!
+Strava Transformer - 2024-01-02 17:33:16,151 - INFO - Data up to date!
+Strava Transformer - 2024-01-02 17:33:16,151 - INFO - EL job complete.

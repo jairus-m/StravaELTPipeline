@@ -51,16 +51,7 @@ def main():
     LIMIT 50;
     """
 
-    if bqc.table_exists(dataset_name, table_name) is True: 
-        df_new = bqc.newest_data(sel.extract(), sql_query)
-        if len(df_new) > 0:
-            logger.info(f'Appending new data... {len(df_new)} new activities.')
-            bqc.append_to_table(table_id, df_new)
-        else:
-            logger.info('Data up to date!')
-    else:
-        logger.info('Table not found. Batch loading last 200 activities.')
-        sel.load(bqc, table_id, 200)
-
+    sel.load(bqc, project_name, dataset_name, table_name, 200, sql_query)
+    logger.info('EL job complete.')
 if __name__ == '__main__':
     main()
