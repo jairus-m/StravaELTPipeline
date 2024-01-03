@@ -44,7 +44,6 @@ class StravaEL():
             res = requests.post(self.strava_auth_url,data=self.strava_payload,
                                 verify=False, timeout=(10,10))
             access_token = res.json()['access_token']
-            self._logger.info("Access Token = %s", access_token)
 
             header = {'Authorization': 'Bearer ' + access_token}
             # set number of pages to read through
