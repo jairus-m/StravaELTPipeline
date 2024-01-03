@@ -89,5 +89,5 @@ class StravaEL():
             bqc.upload_table(table_id, df[:num_activities])
             return True
         except Exception as e:
-            self._logger(f'Error in load method:{e}')
+            self._logger.error(f'Error in load method:{e}')
     

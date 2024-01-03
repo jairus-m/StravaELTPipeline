@@ -37,7 +37,30 @@ def main():
     # run
     logger = logger = logging.getLogger(__name__)
     logger.info('Starting EL job.')
-    sel.load(bqc, 'strava-activity.StravaActivities.raw', 200)
+
+    project_name = config['bigquery']['project']
+    dataset_name = config['bigquery']['dataset']
+    table_name = config['bigquery']['table']
+
+    table_id = ".".join([project_name, dataset_name, table_name])
+
+    sql_query = f"""
+    SELECT DISTINCT id, name, start_date
+    FROM {table_id}
+    ORDER BY start_date DESC
+    LIMIT 50;
+    """
+
+    if bqc.table_exists(dataset_name, table_name) is True: 
+        df_new = bqc.newest_data(sel.extract(), sql_query)
+        if len(df_new) > 0:
+            logger.info(f'Appending new data... {len(df_new)} new activities.')
+            bqc.append_to_table(table_id, df_new)
+        else:
+            logger.info('Data up to date!')
+    else:
+        logger.info('Table not found. Batch loading last 200 activities.')
+        sel.load(bqc, table_id, 200)
 
 if __name__ == '__main__':
     main()

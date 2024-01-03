@@ -13,3 +13,46 @@ Xetra Transformer - 2024-01-02 12:57:26,416 - INFO - Importing data...
 Xetra Transformer - 2024-01-02 12:57:29,992 - INFO - Copying Page: 1
 Xetra Transformer - 2024-01-02 12:57:29,993 - INFO - Data imported succesfully!
 Xetra Transformer - 2024-01-02 12:57:30,005 - INFO - Uploading table to BigQuery...
+Strava Transformer - 2024-01-02 16:49:09,758 - INFO - Starting EL job.
+Strava Transformer - 2024-01-02 16:52:31,651 - INFO - Starting EL job.
+Strava Transformer - 2024-01-02 17:01:51,643 - INFO - Starting EL job.
+Strava Transformer - 2024-01-02 17:05:38,893 - INFO - Starting EL job.
+Strava Transformer - 2024-01-02 17:05:39,685 - INFO - Requesting Token...
+
+Strava Transformer - 2024-01-02 17:05:40,113 - INFO - Access Token = f7a41020f22d02e7f532abdf628b3f6d18587b9b
+Strava Transformer - 2024-01-02 17:05:40,114 - INFO - Importing data...
+Strava Transformer - 2024-01-02 17:05:42,653 - INFO - Copying Page: 1
+Strava Transformer - 2024-01-02 17:05:42,654 - INFO - Data imported succesfully!
+Strava Transformer - 2024-01-02 17:06:48,267 - INFO - Starting EL job.
+Strava Transformer - 2024-01-02 17:06:49,442 - INFO - Requesting Token...
+
+Strava Transformer - 2024-01-02 17:06:50,455 - INFO - Access Token = f7a41020f22d02e7f532abdf628b3f6d18587b9b
+Strava Transformer - 2024-01-02 17:06:50,456 - INFO - Importing data...
+Strava Transformer - 2024-01-02 17:06:53,542 - INFO - Copying Page: 1
+Strava Transformer - 2024-01-02 17:06:53,542 - INFO - Data imported succesfully!
+Strava Transformer - 2024-01-02 17:06:54,227 - INFO - Data up to date!
+Strava Transformer - 2024-01-02 17:09:39,465 - INFO - Starting EL job.
+Strava Transformer - 2024-01-02 17:09:40,305 - INFO - Requesting Token...
+
+Strava Transformer - 2024-01-02 17:09:40,858 - INFO - Access Token = f7a41020f22d02e7f532abdf628b3f6d18587b9b
+Strava Transformer - 2024-01-02 17:09:40,859 - INFO - Importing data...
+Strava Transformer - 2024-01-02 17:09:43,278 - INFO - Copying Page: 1
+Strava Transformer - 2024-01-02 17:09:43,279 - INFO - Data imported succesfully!
+Strava Transformer - 2024-01-02 17:09:43,820 - INFO - Appending new data... 1 new activities.
+Strava Transformer - 2024-01-02 17:12:08,280 - INFO - Starting EL job.
+Strava Transformer - 2024-01-02 17:12:09,001 - INFO - Requesting Token...
+
+Strava Transformer - 2024-01-02 17:12:09,602 - INFO - Access Token = f7a41020f22d02e7f532abdf628b3f6d18587b9b
+Strava Transformer - 2024-01-02 17:12:09,603 - INFO - Importing data...
+Strava Transformer - 2024-01-02 17:12:12,057 - INFO - Copying Page: 1
+Strava Transformer - 2024-01-02 17:12:12,057 - INFO - Data imported succesfully!
+Strava Transformer - 2024-01-02 17:12:12,578 - INFO - Appending new data... 1 new activities.
+Strava Transformer - 2024-01-02 17:14:18,468 - INFO - Starting EL job.
+Strava Transformer - 2024-01-02 17:14:19,339 - INFO - Table not found. Batch loading last 200 activities.
+Strava Transformer - 2024-01-02 17:14:19,340 - INFO - Requesting Token...
+
+Strava Transformer - 2024-01-02 17:14:19,697 - INFO - Access Token = 97a5d3d3bc8c9ac708be151f2ae32a6a572f61da
+Strava Transformer - 2024-01-02 17:14:19,698 - INFO - Importing data...
+Strava Transformer - 2024-01-02 17:14:21,618 - INFO - Copying Page: 1
+Strava Transformer - 2024-01-02 17:14:21,619 - INFO - Data imported succesfully!
+Strava Transformer - 2024-01-02 17:14:21,628 - INFO - Uploading table to BigQuery...

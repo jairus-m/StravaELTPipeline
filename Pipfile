@@ -9,6 +9,7 @@ google-cloud-bigquery = "*"
 pandas = "*"
 pyyaml = "*"
 pyarrow = "*"
+db-dtypes = "*"
 
 [dev-packages]
 ipykernel = "*"
