@@ -80,7 +80,6 @@ class StravaEL():
         :param project_name: name of GCS project
         :param dataset_name: name of dataset
         :param table_name: name of table
-        :param table_id: 'project.dataset.table' referring to table within dataset within project
         :param num_activities: number of most recent activities to load
         :param sql_query: sql_query to get the latest data to compare for freshness
         """
@@ -88,9 +87,10 @@ class StravaEL():
             df = self.extract()
             df.columns = df.columns.str.replace('.', '_')
 
+            # project.dataset.table format
             table_id = ".".join([project_name, dataset_name, table_name])
 
-            if bqc.table_exists(dataset_name, table_name) is True: 
+            if bqc.table_exists(dataset_name, table_name) is True:
                 df_new = bqc.newest_data(df, sql_query)
                 if len(df_new) > 0:
                     self._logger.info('Appending new data... %s new activities.', len(df_new))
