@@ -44,7 +44,6 @@ class StravaEL():
             res = requests.post(self.strava_auth_url,data=self.strava_payload,
                                 verify=False, timeout=(10,10))
             access_token = res.json()['access_token']
-            self._logger.info("Access Token = %s", access_token)
 
             header = {'Authorization': 'Bearer ' + access_token}
             # set number of pages to read through
@@ -73,21 +72,35 @@ class StravaEL():
         except Exception as e:
             self._logger(f'Error in extract method:{e}')
     
-    def load(self, bqc: BigQueryConnector, table_id: str, num_activities: int):
+    def load(self, bqc: BigQueryConnector, project_name: str, dataset_name: str, table_name: str, num_activities: int, sql_query: str):
         """
         Uploads raw data to BigQuery
 
         :param bqc: BiqQueryConnector class object
+        :param project_name: name of GCS project
+        :param dataset_name: name of dataset
+        :param table_name: name of table
         :param table_id: 'project.dataset.table' referring to table within dataset within project
         :param num_activities: number of most recent activities to load
+        :param sql_query: sql_query to get the latest data to compare for freshness
         """
         try:
             df = self.extract()
             df.columns = df.columns.str.replace('.', '_')
 
-            self._logger.info('Uploading table to BigQuery...')
-            bqc.upload_table(table_id, df[:num_activities])
+            table_id = ".".join([project_name, dataset_name, table_name])
+
+            if bqc.table_exists(dataset_name, table_name) is True: 
+                df_new = bqc.newest_data(df, sql_query)
+                if len(df_new) > 0:
+                    self._logger.info('Appending new data... %s new activities.', len(df_new))
+                    bqc.append_to_table(table_id, df_new)
+                else:
+                    self._logger.info('Data up to date!')
+            else:
+                self._logger.info('Table not found. Batch loading last 200 activities.')
+                bqc.upload_table(table_id, df[:num_activities])
             return True
         except Exception as e:
-            self._logger(f'Error in load method:{e}')
+            self._logger.error('Error in load method: %s', e)
     

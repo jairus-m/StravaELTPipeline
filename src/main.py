@@ -37,7 +37,21 @@ def main():
     # run
     logger = logger = logging.getLogger(__name__)
     logger.info('Starting EL job.')
-    sel.load(bqc, 'strava-activity.StravaActivities.raw', 200)
 
+    project_name = config['bigquery']['project']
+    dataset_name = config['bigquery']['dataset']
+    table_name = config['bigquery']['table']
+
+    table_id = ".".join([project_name, dataset_name, table_name])
+
+    sql_query = f"""
+    SELECT DISTINCT id, name, start_date
+    FROM {table_id}
+    ORDER BY start_date DESC
+    LIMIT 50;
+    """
+
+    sel.load(bqc, project_name, dataset_name, table_name, 200, sql_query)
+    logger.info('EL job complete.')
 if __name__ == '__main__':
     main()
