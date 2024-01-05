@@ -3,7 +3,8 @@ import logging
 import logging.config
 import yaml
 from nodes.utils import StravaAPIConnector, BigQueryConnector
-from transformers.extract_load import StravaEL
+
+from transformers.strava_etl import StravaETL
 
 def main():
     """
@@ -27,8 +28,12 @@ def main():
 
     sac = StravaAPIConnector(STRAVA_AUTH_URL, STRAVA_ACTIVITIES_URL, STRAVA_PAYLOAD)
 
-    # intialize StravaEL class
-    sel = StravaEL(sac.strava_auth_url, sac.strava_activities_url, sac.strava_payload, 2, 200)
+    pages = config['strava_api']['pages']
+    num_activities = config['strava_api']['num_activities']
+    cols_to_drop = config['strava_api']['cols_to_drop']
+    
+    # intialize StravaETL class
+    sel = StravaETL(sac.strava_auth_url, sac.strava_activities_url, sac.strava_payload, pages, num_activities, cols_to_drop)
 
     # initlaize BigQueryConnector class
     SERVICE_ACCOUNT_JSON = config['bigquery']['SERVICE_ACCOUNT_JSON']
@@ -51,7 +56,7 @@ def main():
     LIMIT 50;
     """
 
-    sel.load(bqc, project_name, dataset_name, table_name, 200, sql_query)
-    logger.info('EL job complete.')
+    sel.load(bqc, project_name, dataset_name, table_name, num_activities, sql_query)
+    logger.info('ETL job complete.')
 if __name__ == '__main__':
     main()

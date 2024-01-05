@@ -16,13 +16,13 @@ The goal of this project is to try and implement the skeleton of a decent ETL pi
 ### Overall ETL pipeline
 Strava API --> Python --> BigQuery
 - light transformation with Pandas
-- orchestration with Apache Airflow / GitHub Actions
-- datawarehouse to use is BigQuery 
+- orchestration through Google Cloud Services
+- data storage through BigQuery 
 - final data transformations with business logic with dbt
-- Dockerization via Docker
+- Containerization via Docker
+- BI dashboard via Looker Studio
 
 ### Folder structure
-- configs : py file with API tokens, db user/password
-- logs : logging files
+- configs : py file with API tokens, db user/password, ETL params
 - src : source code
 - tests : unit tests

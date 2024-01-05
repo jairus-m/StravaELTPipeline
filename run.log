@@ -14,3 +14,151 @@ Strava Transformer - 2024-01-04 20:01:38,978 - INFO - Copying Page: 1
 Strava Transformer - 2024-01-04 20:01:38,979 - INFO - Data imported succesfully!
 Strava Transformer - 2024-01-04 20:01:40,875 - INFO - Data up to date!
 Strava Transformer - 2024-01-04 20:01:40,876 - INFO - EL job complete.
+Strava Transformer - 2024-01-05 14:52:36,852 - INFO - Starting EL job.
+Strava Transformer - 2024-01-05 14:52:36,853 - ERROR - Error in load method: StravaETL.transform() missing 1 required positional argument: 'cols_to_drop'
+Strava Transformer - 2024-01-05 14:52:36,853 - INFO - ETL job complete.
+Strava Transformer - 2024-01-05 14:53:02,440 - INFO - Starting EL job.
+Strava Transformer - 2024-01-05 14:53:02,440 - INFO - Requesting Token...
+
+Strava Transformer - 2024-01-05 14:53:02,694 - INFO - Importing data...
+Strava Transformer - 2024-01-05 14:53:07,342 - INFO - Copying Page: 1
+Strava Transformer - 2024-01-05 14:53:13,648 - INFO - Copying Page: 2
+Strava Transformer - 2024-01-05 14:53:22,462 - INFO - Copying Page: 3
+Strava Transformer - 2024-01-05 14:53:32,336 - INFO - Copying Page: 4
+Strava Transformer - 2024-01-05 14:53:40,141 - INFO - Copying Page: 5
+Strava Transformer - 2024-01-05 14:53:48,548 - INFO - Copying Page: 6
+Strava Transformer - 2024-01-05 14:53:57,418 - INFO - Copying Page: 7
+Strava Transformer - 2024-01-05 14:54:06,390 - INFO - Copying Page: 8
+Strava Transformer - 2024-01-05 14:54:15,111 - INFO - Copying Page: 9
+Strava Transformer - 2024-01-05 14:54:15,112 - INFO - Data imported succesfully!
+Strava Transformer - 2024-01-05 14:54:15,152 - INFO - Dropped cols...
+Strava Transformer - 2024-01-05 14:54:15,156 - INFO - Error in transform method:'Series' object has no attribute 'x'
+Strava Transformer - 2024-01-05 14:54:15,156 - ERROR - Error in load method: 'NoneType' object has no attribute 'columns'
+Strava Transformer - 2024-01-05 14:54:15,157 - INFO - ETL job complete.
+Strava Transformer - 2024-01-05 15:07:22,595 - INFO - Starting EL job.
+Strava Transformer - 2024-01-05 15:07:22,596 - INFO - Requesting Token...
+
+Strava Transformer - 2024-01-05 15:07:22,888 - INFO - Importing data...
+Strava Transformer - 2024-01-05 15:07:26,339 - INFO - Copying Page: 1
+Strava Transformer - 2024-01-05 15:07:31,673 - INFO - Copying Page: 2
+Strava Transformer - 2024-01-05 15:07:37,359 - INFO - Copying Page: 3
+Strava Transformer - 2024-01-05 15:07:44,895 - INFO - Copying Page: 4
+Strava Transformer - 2024-01-05 15:07:50,556 - INFO - Copying Page: 5
+Strava Transformer - 2024-01-05 15:07:57,744 - INFO - Copying Page: 6
+Strava Transformer - 2024-01-05 15:08:05,077 - INFO - Copying Page: 7
+Strava Transformer - 2024-01-05 15:08:10,856 - INFO - Copying Page: 8
+Strava Transformer - 2024-01-05 15:08:17,347 - INFO - Copying Page: 9
+Strava Transformer - 2024-01-05 15:08:17,348 - INFO - Data imported succesfully!
+Strava Transformer - 2024-01-05 15:08:17,394 - INFO - Dropped cols...
+Strava Transformer - 2024-01-05 15:08:17,398 - INFO - Error in transform method:UnitConversion.meters_to_miles() missing 1 required positional argument: 'x'
+Strava Transformer - 2024-01-05 15:08:17,398 - ERROR - Error in load method: 'NoneType' object has no attribute 'columns'
+Strava Transformer - 2024-01-05 15:08:17,398 - INFO - ETL job complete.
+Strava Transformer - 2024-01-05 15:11:16,292 - INFO - Starting EL job.
+Strava Transformer - 2024-01-05 15:11:16,292 - INFO - Requesting Token...
+
+Strava Transformer - 2024-01-05 15:11:16,624 - INFO - Importing data...
+Strava Transformer - 2024-01-05 15:11:16,625 - INFO - Data imported succesfully!
+Strava Transformer - 2024-01-05 15:11:16,628 - INFO - Dropped cols...
+Strava Transformer - 2024-01-05 15:11:16,629 - INFO - Error in transform method:"['start_date', 'resource_state', 'type', 'start_date', 'timezone', 'utc_offset', 'location_city', 'location_state', 'location_country', 'photo_count', 'trainer', 'commute', 'manual', 'flagged', 'gear_id', 'start_latlng', 'end_latlng', 'heartrate_opt_out', 'display_hide_heartrate_option', 'upload_id', 'upload_id_str', 'external_id', 'from_accepted_tag', 'total_photo_count', 'athlete.id', 'athlete.resource_state', 'map.id', 'map.summary_polyline', 'map.resource_state', 'device_watts', 'workout_type'] not found in axis"
+Strava Transformer - 2024-01-05 15:11:16,629 - ERROR - Error in load method: 'NoneType' object has no attribute 'columns'
+Strava Transformer - 2024-01-05 15:11:16,629 - INFO - ETL job complete.
+Strava Transformer - 2024-01-05 15:11:37,582 - INFO - Starting EL job.
+Strava Transformer - 2024-01-05 15:11:37,582 - INFO - Requesting Token...
+
+Strava Transformer - 2024-01-05 15:11:37,926 - INFO - Importing data...
+Strava Transformer - 2024-01-05 15:11:37,926 - INFO - Data imported succesfully!
+Strava Transformer - 2024-01-05 15:11:37,930 - INFO - Dropped cols...
+Strava Transformer - 2024-01-05 15:11:37,930 - INFO - Error in transform method:"['start_date', 'resource_state', 'type', 'start_date', 'timezone', 'utc_offset', 'location_city', 'location_state', 'location_country', 'photo_count', 'trainer', 'commute', 'manual', 'flagged', 'gear_id', 'start_latlng', 'end_latlng', 'heartrate_opt_out', 'display_hide_heartrate_option', 'upload_id', 'upload_id_str', 'external_id', 'from_accepted_tag', 'total_photo_count', 'athlete.id', 'athlete.resource_state', 'map.id', 'map.summary_polyline', 'map.resource_state', 'device_watts', 'workout_type'] not found in axis"
+Strava Transformer - 2024-01-05 15:11:37,931 - ERROR - Error in load method: 'NoneType' object has no attribute 'columns'
+Strava Transformer - 2024-01-05 15:11:37,931 - INFO - ETL job complete.
+Strava Transformer - 2024-01-05 15:12:18,124 - INFO - Starting EL job.
+Strava Transformer - 2024-01-05 15:12:18,124 - INFO - Requesting Token...
+
+Strava Transformer - 2024-01-05 15:12:18,463 - INFO - Importing data...
+Strava Transformer - 2024-01-05 15:12:21,995 - INFO - Copying Page: 1
+Strava Transformer - 2024-01-05 15:12:21,995 - INFO - Data imported succesfully!
+Strava Transformer - 2024-01-05 15:12:22,002 - INFO - Dropped cols...
+Strava Transformer - 2024-01-05 15:12:22,002 - INFO - Error in transform method:UnitConversion.meters_to_miles() missing 1 required positional argument: 'x'
+Strava Transformer - 2024-01-05 15:12:22,002 - ERROR - Error in load method: 'NoneType' object has no attribute 'columns'
+Strava Transformer - 2024-01-05 15:12:22,002 - INFO - ETL job complete.
+Strava Transformer - 2024-01-05 15:15:08,112 - INFO - Starting EL job.
+Strava Transformer - 2024-01-05 15:15:08,113 - INFO - Requesting Token...
+
+Strava Transformer - 2024-01-05 15:15:08,351 - INFO - Importing data...
+Strava Transformer - 2024-01-05 15:15:11,294 - INFO - Copying Page: 1
+Strava Transformer - 2024-01-05 15:15:11,294 - INFO - Data imported succesfully!
+Strava Transformer - 2024-01-05 15:15:11,301 - INFO - Dropping cols...
+Strava Transformer - 2024-01-05 15:15:11,301 - INFO - Cols dropped...
+Strava Transformer - 2024-01-05 15:15:11,302 - INFO - Error in transform method:UnitConversion.meters_to_miles() missing 1 required positional argument: 'self'
+Strava Transformer - 2024-01-05 15:15:11,302 - ERROR - Error in load method: 'NoneType' object has no attribute 'columns'
+Strava Transformer - 2024-01-05 15:15:11,302 - INFO - ETL job complete.
+Strava Transformer - 2024-01-05 15:15:35,575 - INFO - Starting EL job.
+Strava Transformer - 2024-01-05 15:15:35,575 - INFO - Requesting Token...
+
+Strava Transformer - 2024-01-05 15:15:36,025 - INFO - Importing data...
+Strava Transformer - 2024-01-05 15:15:38,621 - INFO - Copying Page: 1
+Strava Transformer - 2024-01-05 15:15:38,621 - INFO - Data imported succesfully!
+Strava Transformer - 2024-01-05 15:15:38,627 - INFO - Dropping cols...
+Strava Transformer - 2024-01-05 15:15:38,628 - INFO - Cols dropped...
+Strava Transformer - 2024-01-05 15:15:38,628 - INFO - Error in transform method:UnitConversion.meters_to_miles() missing 1 required positional argument: 'self'
+Strava Transformer - 2024-01-05 15:15:38,628 - ERROR - Error in load method: 'NoneType' object has no attribute 'columns'
+Strava Transformer - 2024-01-05 15:15:38,628 - INFO - ETL job complete.
+Strava Transformer - 2024-01-05 15:15:54,570 - INFO - Starting EL job.
+Strava Transformer - 2024-01-05 15:15:54,570 - INFO - Requesting Token...
+
+Strava Transformer - 2024-01-05 15:15:54,903 - INFO - Importing data...
+Strava Transformer - 2024-01-05 15:15:57,078 - INFO - Copying Page: 1
+Strava Transformer - 2024-01-05 15:15:57,079 - INFO - Data imported succesfully!
+Strava Transformer - 2024-01-05 15:15:57,085 - INFO - Dropping cols...
+Strava Transformer - 2024-01-05 15:15:57,085 - INFO - Cols dropped...
+Strava Transformer - 2024-01-05 15:15:57,086 - INFO - Error in transform method:UnitConversion.meters_to_miles() missing 1 required positional argument: 'self'
+Strava Transformer - 2024-01-05 15:15:57,086 - ERROR - Error in load method: 'NoneType' object has no attribute 'columns'
+Strava Transformer - 2024-01-05 15:15:57,086 - INFO - ETL job complete.
+Strava Transformer - 2024-01-05 15:19:20,051 - INFO - Starting EL job.
+Strava Transformer - 2024-01-05 15:19:20,052 - INFO - Requesting Token...
+
+Strava Transformer - 2024-01-05 15:19:20,436 - INFO - Importing data...
+Strava Transformer - 2024-01-05 15:19:22,225 - INFO - Copying Page: 1
+Strava Transformer - 2024-01-05 15:19:22,226 - INFO - Data imported succesfully!
+Strava Transformer - 2024-01-05 15:19:22,232 - INFO - Dropping cols...
+Strava Transformer - 2024-01-05 15:19:22,232 - INFO - Cols dropped...
+Strava Transformer - 2024-01-05 15:19:22,233 - INFO - Error in transform method:UnitConversion.meters_to_miles() missing 1 required positional argument: 'self'
+Strava Transformer - 2024-01-05 15:19:22,233 - ERROR - Error in load method: 'NoneType' object has no attribute 'columns'
+Strava Transformer - 2024-01-05 15:19:22,233 - INFO - ETL job complete.
+Strava Transformer - 2024-01-05 15:20:32,814 - INFO - Starting EL job.
+Strava Transformer - 2024-01-05 15:20:32,814 - INFO - Requesting Token...
+
+Strava Transformer - 2024-01-05 15:20:33,157 - INFO - Importing data...
+Strava Transformer - 2024-01-05 15:20:34,775 - INFO - Copying Page: 1
+Strava Transformer - 2024-01-05 15:20:34,776 - INFO - Data imported succesfully!
+Strava Transformer - 2024-01-05 15:20:34,782 - INFO - Dropping cols...
+Strava Transformer - 2024-01-05 15:20:34,783 - INFO - Cols dropped...
+Strava Transformer - 2024-01-05 15:20:34,784 - INFO - Converted distance units.
+Strava Transformer - 2024-01-05 15:20:34,784 - INFO - Converted speed units.
+Strava Transformer - 2024-01-05 15:20:34,784 - INFO - Converted elevation units.
+Strava Transformer - 2024-01-05 15:20:34,795 - INFO - Created time bins.
+Strava Transformer - 2024-01-05 15:20:35,616 - INFO - Table not found. Batch loading last 200 activities.
+Strava Transformer - 2024-01-05 15:20:40,677 - INFO - ETL job complete.
+Strava Transformer - 2024-01-05 15:22:07,063 - INFO - Starting EL job.
+Strava Transformer - 2024-01-05 15:22:07,063 - INFO - Requesting Token...
+
+Strava Transformer - 2024-01-05 15:22:07,293 - INFO - Importing data...
+Strava Transformer - 2024-01-05 15:22:09,772 - INFO - Copying Page: 1
+Strava Transformer - 2024-01-05 15:22:14,363 - INFO - Copying Page: 2
+Strava Transformer - 2024-01-05 15:22:19,286 - INFO - Copying Page: 3
+Strava Transformer - 2024-01-05 15:22:27,076 - INFO - Copying Page: 4
+Strava Transformer - 2024-01-05 15:22:32,245 - INFO - Copying Page: 5
+Strava Transformer - 2024-01-05 15:22:38,705 - INFO - Copying Page: 6
+Strava Transformer - 2024-01-05 15:22:45,101 - INFO - Copying Page: 7
+Strava Transformer - 2024-01-05 15:22:51,134 - INFO - Copying Page: 8
+Strava Transformer - 2024-01-05 15:22:56,809 - INFO - Copying Page: 9
+Strava Transformer - 2024-01-05 15:23:02,707 - INFO - Copying Page: 10
+Strava Transformer - 2024-01-05 15:23:02,708 - INFO - Data imported succesfully!
+Strava Transformer - 2024-01-05 15:23:02,751 - INFO - Dropping cols...
+Strava Transformer - 2024-01-05 15:23:02,752 - INFO - Cols dropped...
+Strava Transformer - 2024-01-05 15:23:02,753 - INFO - Converted distance units.
+Strava Transformer - 2024-01-05 15:23:02,753 - INFO - Converted speed units.
+Strava Transformer - 2024-01-05 15:23:02,753 - INFO - Converted elevation units.
+Strava Transformer - 2024-01-05 15:23:02,760 - INFO - Created time bins.
+Strava Transformer - 2024-01-05 15:23:03,617 - INFO - Table not found. Batch loading last 200 activities.
+Strava Transformer - 2024-01-05 15:23:18,451 - INFO - ETL job complete.

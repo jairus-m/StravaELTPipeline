@@ -10,12 +10,13 @@ import pandas as pd
 import numpy as np
 import requests
 from nodes.utils import StravaAPIConnector, BigQueryConnector
+from nodes.utils import UnitConversion
 
-class StravaEL():
-    """Reads in Strava data and writes to BigQuery (extract and load)"""
+class StravaETL():
+    """Reads in Strava data and writes to BigQuery (extract, transform, and load)"""
 
     def __init__(self, strava_auth_url: StravaAPIConnector, strava_activities_url: StravaAPIConnector,
-                 strava_payload: StravaAPIConnector, max_page_num: int, actv_per_page: int):
+                 strava_payload: StravaAPIConnector, max_page_num: int, actv_per_page: int, cols_to_drop: list):
         """
         Constructor for StravaEL class.
 
@@ -24,12 +25,14 @@ class StravaEL():
         :param strava_payload: dict containing client_id, client_secret, refresh_token, grant_type, f
         :param max_page_num: max pages to read through (pages contain activity data)
         :param actv_per_page: number of activities read per page
+        :param cols_to_drop: col names to drop from data
         """
         self.strava_auth_url = strava_auth_url
         self.strava_activities_url = strava_activities_url
         self.strava_payload = strava_payload
         self.max_page_num = max_page_num
         self.actv_per_page = actv_per_page
+        self.cols_to_drop = cols_to_drop
         self._logger = logging.getLogger(__name__)
 
     def extract(self):
@@ -71,10 +74,60 @@ class StravaEL():
             return pd.json_normalize(all_activities)
         except Exception as e:
             self._logger(f'Error in extract method:{e}')
+
+    def transform(self):
+        """
+        Clean and processes raw activity data to a useable dataset.
+
+        :returns: cleaned strava activitiy dataframe
+        :rtype: pd.DataFrame
+        """
+        try:
+            df = self.extract()
+
+            # cols to drop
+            self._logger.info('Dropping cols...')
+            
+            df = df.drop(columns=self.cols_to_drop)
+
+            self._logger.info('Cols dropped...')
+
+            uc = UnitConversion()
+
+            # convert distance units
+            df['distance'] = uc.meters_to_miles(x=df['distance'])
+            df['moving_time'] = uc.sec_to_min(df['moving_time'])
+            df['elapsed_time'] = uc.sec_to_min(df['elapsed_time'])
+            df['total_elevation_gain'] = uc.meters_to_feet(df['total_elevation_gain'])
+            self._logger.info('Converted distance units.')
+
+            # convert speed units
+            df['average_speed'] = uc.mps_to_mph(df['average_speed'])
+            df['max_speed'] = uc.mps_to_mph(df['max_speed'])
+            self._logger.info('Converted speed units.')
+
+            df['elev_high'] = uc.meters_to_feet(df['elev_high'])
+            df['elev_low'] = uc.meters_to_feet(df['elev_low'])
+            self._logger.info('Converted elevation units.')
+
+            # create time bins
+            df['date'] = pd.to_datetime(df['start_date_local']).dt.tz_localize(None)
+            df = df.drop(columns='start_date_local')
+            df['time'] = df['date'].dt.hour
+            df['time_bins'] = pd.cut(
+                df['time'],
+                bins=[-1,4,8,12,16,20,24],
+                labels=['12am-4am', '4am-8am', '8am-12pm', '12pm-4pm', '4pm-8pm', '8pm-12am'],
+                ordered=True
+            )
+            self._logger.info('Created time bins.')
+            return df
+        except Exception as e:
+            self._logger.info(f'Error in transform method:{e}')
     
     def load(self, bqc: BigQueryConnector, project_name: str, dataset_name: str, table_name: str, num_activities: int, sql_query: str):
         """
-        Uploads raw data to BigQuery
+        Uploads data to BigQuery
 
         :param bqc: BiqQueryConnector class object
         :param project_name: name of GCS project
@@ -84,7 +137,7 @@ class StravaEL():
         :param sql_query: sql_query to get the latest data to compare for freshness
         """
         try:
-            df = self.extract()
+            df = self.transform()
             df.columns = df.columns.str.replace('.', '_')
 
             # project.dataset.table format
@@ -98,7 +151,7 @@ class StravaEL():
                 else:
                     self._logger.info('Data up to date!')
             else:
-                self._logger.info('Table not found. Batch loading last 200 activities.')
+                self._logger.info('Table not found. Batch loading activities.')
                 bqc.upload_table(table_id, df[:num_activities])
             return True
         except Exception as e:

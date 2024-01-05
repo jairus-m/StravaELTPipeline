@@ -135,15 +135,7 @@ class BigQueryConnector():
 
 class UnitConversion():
     """Class to convert units in Strava Data"""
-    def __init__(self, x : float):
-        """
-        Class constructor for UnitConversion.
-
-        :param x: float number to convert
-        """
-        self.x = x
-
-    def sec_to_min(self):
+    def sec_to_min(self, x: float):
         """
         Converts seconds to minutes.
 
@@ -151,10 +143,10 @@ class UnitConversion():
         :return minutes: minutes
         :rtype minutes: float
         """
-        minutes =  self.x / 60
+        minutes =  x / 60
         return round(minutes,2)
 
-    def meters_to_miles(self):
+    def meters_to_miles(self, x: float):
         """
         Converts meters to miles.
 
@@ -162,10 +154,10 @@ class UnitConversion():
         :return miles: miles
         :rtype: float
         """
-        miles = self.x / 1609.344
+        miles = x / 1609.344
         return round(miles, 2)
 
-    def meters_to_feet(self):
+    def meters_to_feet(self, x: float):
         """
         Converts meters to feet.
 
@@ -173,10 +165,10 @@ class UnitConversion():
         :return feet: feet
         :rtype: float
         """
-        feet = self.x * 3.28084
+        feet = x * 3.28084
         return round(feet, 2)
 
-    def mps_to_mph(self):
+    def mps_to_mph(self, x: float):
         """
         Converts meters per second (mpd) to 
         miles per hour (mph).
@@ -185,5 +177,5 @@ class UnitConversion():
         :return mph: miles per hour
         :rtype: float 
         """
-        mph = self.x * 2.23694
+        mph = x * 2.23694
         return round(mph, 2)    
