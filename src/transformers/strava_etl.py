@@ -1,9 +1,9 @@
 """
-Strava EL
+StravaETL
 
 Author: Jairus Martinez
 Date: 12/21/2023
-This module contains the extract and load pipeline code
+This module contains the extract, transform, and load pipeline code.
 """
 import logging
 import pandas as pd
@@ -14,11 +14,10 @@ from nodes.utils import UnitConversion
 
 class StravaETL():
     """Reads in Strava data and writes to BigQuery (extract, transform, and load)"""
-
     def __init__(self, strava_auth_url: StravaAPIConnector, strava_activities_url: StravaAPIConnector,
                  strava_payload: StravaAPIConnector, max_page_num: int, actv_per_page: int, cols_to_drop: list):
         """
-        Constructor for StravaEL class.
+        Constructor for StravaETL class.
 
         :param strava_auth_url: strava authorization url
         :param strava_activities_url: strava athlete activities url
