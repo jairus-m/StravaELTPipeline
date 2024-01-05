@@ -28,11 +28,11 @@ def main():
 
     sac = StravaAPIConnector(STRAVA_AUTH_URL, STRAVA_ACTIVITIES_URL, STRAVA_PAYLOAD)
 
+     # intialize StravaETL class
     pages = config['strava_api']['pages']
     num_activities = config['strava_api']['num_activities']
     cols_to_drop = config['strava_api']['cols_to_drop']
-    
-    # intialize StravaETL class
+
     sel = StravaETL(sac.strava_auth_url, sac.strava_activities_url, sac.strava_payload, pages, num_activities, cols_to_drop)
 
     # initlaize BigQueryConnector class
@@ -40,8 +40,8 @@ def main():
     bqc = BigQueryConnector(service_account_json=SERVICE_ACCOUNT_JSON)
 
     # run
-    logger = logger = logging.getLogger(__name__)
-    logger.info('Starting EL job.')
+    logger = logging.getLogger(__name__)
+    logger.info('Starting ETL job.')
 
     project_name = config['bigquery']['project']
     dataset_name = config['bigquery']['dataset']
@@ -55,8 +55,9 @@ def main():
     ORDER BY start_date DESC
     LIMIT 50;
     """
-
+    # load updated data
     sel.load(bqc, project_name, dataset_name, table_name, num_activities, sql_query)
     logger.info('ETL job complete.')
+    
 if __name__ == '__main__':
     main()
