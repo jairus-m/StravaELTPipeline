@@ -10,6 +10,7 @@ pandas = "*"
 pyyaml = "*"
 pyarrow = "*"
 db-dtypes = "*"
+slack-sdk = "*"
 
 [dev-packages]
 ipykernel = "*"

@@ -9,7 +9,7 @@ import logging
 import pandas as pd
 import numpy as np
 import requests
-from nodes.utils import StravaAPIConnector, BigQueryConnector
+from nodes.connectors import StravaAPIConnector, BigQueryConnector
 from nodes.utils import UnitConversion
 
 class StravaETL():
@@ -42,7 +42,7 @@ class StravaETL():
         :rtype: pd.DataFrame
         """
         try:
-            self._logger.info("Requesting Token...\n")
+            self._logger.info("Requesting Token...")
             res = requests.post(self.strava_auth_url,data=self.strava_payload,
                                 verify=False, timeout=(10,10))
             access_token = res.json()['access_token']
@@ -73,6 +73,7 @@ class StravaETL():
             return pd.json_normalize(all_activities)
         except Exception as e:
             self._logger(f'Error in extract method:{e}')
+            raise
 
     def transform(self):
         """
@@ -123,6 +124,7 @@ class StravaETL():
             return df
         except Exception as e:
             self._logger.info(f'Error in transform method:{e}')
+            raise
     
     def load(self, bqc: BigQueryConnector, project_name: str, dataset_name: str, table_name: str, sql_query: str, date_col_name: str):
         """
@@ -155,4 +157,5 @@ class StravaETL():
             return True
         except Exception as e:
             self._logger.error('Error in load method: %s', e)
+            raise
     
