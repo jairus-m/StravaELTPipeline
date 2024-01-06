@@ -74,12 +74,13 @@ class BigQueryConnector():
 
         return True
     
-    def newest_data(self, df: pd.DataFrame, sql_query: str):
+    def newest_data(self, df: pd.DataFrame, sql_query: str, date_col_name: str):
         """
         This method filters for the freshest data.
 
-        :params df: dataframe containing the extracted data
-        :sql_query: query to send to table (`StravaActivities.raw`)
+        :param df: dataframe containing the extracted data
+        :param sql_query: query to send to table (`StravaActivities.raw`)
+        :param date_col_name: name of the date col to asses freshness by 
         :returns: filtered dataframe
         """
 
@@ -90,10 +91,10 @@ class BigQueryConnector():
         df_bqc = query_job.to_dataframe()
 
         # grab the latest date (latest date - 1 day)
-        latest_date = pd.to_datetime(df_bqc['start_date']).sort_index().dt.date[0] - timedelta(days=1)
+        latest_date = pd.to_datetime(df_bqc[date_col_name]).sort_index().dt.date[0] - timedelta(days=1)
 
         # create mask and filter data (greater than latest data AND activity 'id' not found in latest query)
-        mask = (pd.to_datetime(df['start_date']).sort_index().dt.date > latest_date) & (~df['id'].isin(df_bqc['id']))
+        mask = (pd.to_datetime(df[date_col_name]).sort_index().dt.date > latest_date) & (~df['id'].isin(df_bqc['id']))
         return df[mask]
     
     def append_to_table(self, table_id: str, df):

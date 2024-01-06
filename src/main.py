@@ -48,16 +48,17 @@ def main():
     table_name = config['bigquery']['table']
 
     table_id = ".".join([project_name, dataset_name, table_name])
+    date_col_name = config['strava_api']['date_col_name']
 
     sql_query = f"""
-    SELECT DISTINCT id, name, start_date
+    SELECT DISTINCT id, name, {date_col_name}
     FROM {table_id}
-    ORDER BY start_date DESC
+    ORDER BY {date_col_name} DESC
     LIMIT 50;
     """
     # load updated data
-    sel.load(bqc, project_name, dataset_name, table_name, num_activities, sql_query)
+    sel.load(bqc, project_name, dataset_name, table_name, sql_query, date_col_name)
     logger.info('ETL job complete.')
-    
+
 if __name__ == '__main__':
     main()

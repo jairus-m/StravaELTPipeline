@@ -110,7 +110,7 @@ class StravaETL():
             self._logger.info('Converted elevation units.')
 
             # create time bins
-            df['date'] = pd.to_datetime(df['start_date_local']).dt.tz_localize(None)
+            df['date'] = pd.to_datetime(df['start_date_local'], format='ISO8601')
             df = df.drop(columns='start_date_local')
             df['time'] = df['date'].dt.hour
             df['time_bins'] = pd.cut(
@@ -124,7 +124,7 @@ class StravaETL():
         except Exception as e:
             self._logger.info(f'Error in transform method:{e}')
     
-    def load(self, bqc: BigQueryConnector, project_name: str, dataset_name: str, table_name: str, num_activities: int, sql_query: str):
+    def load(self, bqc: BigQueryConnector, project_name: str, dataset_name: str, table_name: str, sql_query: str, date_col_name: str):
         """
         Uploads data to BigQuery
 
@@ -132,8 +132,8 @@ class StravaETL():
         :param project_name: name of GCS project
         :param dataset_name: name of dataset
         :param table_name: name of table
-        :param num_activities: number of most recent activities to load
         :param sql_query: sql_query to get the latest data to compare for freshness
+        :param date_col_name: name of the date col to asses freshness by
         """
         try:
             df = self.transform()
@@ -143,7 +143,7 @@ class StravaETL():
             table_id = ".".join([project_name, dataset_name, table_name])
 
             if bqc.table_exists(dataset_name, table_name) is True:
-                df_new = bqc.newest_data(df, sql_query)
+                df_new = bqc.newest_data(df, sql_query, date_col_name)
                 if len(df_new) > 0:
                     self._logger.info('Appending new data... %s new activities.', len(df_new))
                     bqc.append_to_table(table_id, df_new)
@@ -151,7 +151,7 @@ class StravaETL():
                     self._logger.info('Data up to date!')
             else:
                 self._logger.info('Table not found. Batch loading activities.')
-                bqc.upload_table(table_id, df[:num_activities])
+                bqc.upload_table(table_id, df)
             return True
         except Exception as e:
             self._logger.error('Error in load method: %s', e)

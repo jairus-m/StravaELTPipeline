@@ -162,3 +162,246 @@ Strava Transformer - 2024-01-05 15:23:02,753 - INFO - Converted elevation units.
 Strava Transformer - 2024-01-05 15:23:02,760 - INFO - Created time bins.
 Strava Transformer - 2024-01-05 15:23:03,617 - INFO - Table not found. Batch loading last 200 activities.
 Strava Transformer - 2024-01-05 15:23:18,451 - INFO - ETL job complete.
+Strava Transformer - 2024-01-05 16:13:28,314 - INFO - Starting ETL job.
+Strava Transformer - 2024-01-05 16:13:28,315 - INFO - Requesting Token...
+
+Strava Transformer - 2024-01-05 16:13:28,682 - INFO - Importing data...
+Strava Transformer - 2024-01-05 16:13:31,678 - INFO - Copying Page: 1
+Strava Transformer - 2024-01-05 16:13:31,678 - INFO - Data imported succesfully!
+Strava Transformer - 2024-01-05 16:13:31,688 - INFO - Dropping cols...
+Strava Transformer - 2024-01-05 16:13:31,692 - INFO - Cols dropped...
+Strava Transformer - 2024-01-05 16:13:31,692 - INFO - Converted distance units.
+Strava Transformer - 2024-01-05 16:13:31,693 - INFO - Converted speed units.
+Strava Transformer - 2024-01-05 16:13:31,693 - INFO - Converted elevation units.
+Strava Transformer - 2024-01-05 16:13:31,701 - INFO - Created time bins.
+Strava Transformer - 2024-01-05 16:13:32,697 - ERROR - Error in load method: 400 Unrecognized name: start_date at [2:31]
+
+Location: us-west2
+Job ID: 202e6637-94d8-4753-ad0b-6bbd54c4ca46
+
+Strava Transformer - 2024-01-05 16:13:32,698 - INFO - ETL job complete.
+Strava Transformer - 2024-01-05 16:22:04,107 - INFO - Starting ETL job.
+Strava Transformer - 2024-01-05 16:22:04,107 - INFO - Requesting Token...
+
+Strava Transformer - 2024-01-05 16:22:04,337 - INFO - Importing data...
+Strava Transformer - 2024-01-05 16:22:06,925 - INFO - Copying Page: 1
+Strava Transformer - 2024-01-05 16:22:11,857 - INFO - Copying Page: 2
+Strava Transformer - 2024-01-05 16:22:17,631 - INFO - Copying Page: 3
+Strava Transformer - 2024-01-05 16:22:25,534 - INFO - Copying Page: 4
+Strava Transformer - 2024-01-05 16:22:31,376 - INFO - Copying Page: 5
+Strava Transformer - 2024-01-05 16:22:38,108 - INFO - Copying Page: 6
+Strava Transformer - 2024-01-05 16:22:44,811 - INFO - Copying Page: 7
+Strava Transformer - 2024-01-05 16:22:51,074 - INFO - Copying Page: 8
+Strava Transformer - 2024-01-05 16:22:56,392 - INFO - Copying Page: 9
+Strava Transformer - 2024-01-05 16:23:01,243 - INFO - Copying Page: 10
+Strava Transformer - 2024-01-05 16:23:01,243 - INFO - Data imported succesfully!
+Strava Transformer - 2024-01-05 16:23:01,288 - INFO - Dropping cols...
+Strava Transformer - 2024-01-05 16:23:01,292 - INFO - Cols dropped...
+Strava Transformer - 2024-01-05 16:23:01,292 - INFO - Converted distance units.
+Strava Transformer - 2024-01-05 16:23:01,293 - INFO - Converted speed units.
+Strava Transformer - 2024-01-05 16:23:01,293 - INFO - Converted elevation units.
+Strava Transformer - 2024-01-05 16:23:01,303 - INFO - Created time bins.
+Strava Transformer - 2024-01-05 16:23:02,021 - INFO - Table not found. Batch loading activities.
+Strava Transformer - 2024-01-05 16:23:06,185 - INFO - ETL job complete.
+Strava Transformer - 2024-01-05 16:25:07,463 - INFO - Starting ETL job.
+Strava Transformer - 2024-01-05 16:25:07,463 - INFO - Requesting Token...
+
+Strava Transformer - 2024-01-05 16:25:07,665 - INFO - Importing data...
+Strava Transformer - 2024-01-05 16:25:10,333 - INFO - Copying Page: 1
+Strava Transformer - 2024-01-05 16:25:14,276 - INFO - Copying Page: 2
+Strava Transformer - 2024-01-05 16:25:19,473 - INFO - Copying Page: 3
+Strava Transformer - 2024-01-05 16:25:24,417 - INFO - Copying Page: 4
+Strava Transformer - 2024-01-05 16:25:29,020 - INFO - Copying Page: 5
+Strava Transformer - 2024-01-05 16:25:33,557 - INFO - Copying Page: 6
+Strava Transformer - 2024-01-05 16:25:38,268 - INFO - Copying Page: 7
+Strava Transformer - 2024-01-05 16:25:43,425 - INFO - Copying Page: 8
+Strava Transformer - 2024-01-05 16:25:47,146 - INFO - Copying Page: 9
+Strava Transformer - 2024-01-05 16:25:49,451 - INFO - Copying Page: 10
+Strava Transformer - 2024-01-05 16:25:49,452 - INFO - Data imported succesfully!
+Strava Transformer - 2024-01-05 16:25:49,510 - INFO - Dropping cols...
+Strava Transformer - 2024-01-05 16:25:49,511 - INFO - Cols dropped...
+Strava Transformer - 2024-01-05 16:25:49,512 - INFO - Converted distance units.
+Strava Transformer - 2024-01-05 16:25:49,512 - INFO - Converted speed units.
+Strava Transformer - 2024-01-05 16:25:49,513 - INFO - Converted elevation units.
+Strava Transformer - 2024-01-05 16:25:49,520 - INFO - Created time bins.
+Strava Transformer - 2024-01-05 16:25:50,273 - INFO - Table not found. Batch loading activities.
+Strava Transformer - 2024-01-05 16:25:54,671 - INFO - ETL job complete.
+Strava Transformer - 2024-01-05 17:20:13,593 - INFO - Starting ETL job.
+Strava Transformer - 2024-01-05 17:20:13,593 - INFO - Requesting Token...
+
+Strava Transformer - 2024-01-05 17:20:13,815 - INFO - Importing data...
+Strava Transformer - 2024-01-05 17:20:17,480 - INFO - Copying Page: 1
+Strava Transformer - 2024-01-05 17:20:23,114 - INFO - Copying Page: 2
+Strava Transformer - 2024-01-05 17:20:28,941 - INFO - Copying Page: 3
+Strava Transformer - 2024-01-05 17:20:36,415 - INFO - Copying Page: 4
+Strava Transformer - 2024-01-05 17:20:41,520 - INFO - Copying Page: 5
+Strava Transformer - 2024-01-05 17:20:48,804 - INFO - Copying Page: 6
+Strava Transformer - 2024-01-05 17:20:56,255 - INFO - Copying Page: 7
+Strava Transformer - 2024-01-05 17:21:01,692 - INFO - Copying Page: 8
+Strava Transformer - 2024-01-05 17:21:07,987 - INFO - Copying Page: 9
+Strava Transformer - 2024-01-05 17:21:12,024 - INFO - Copying Page: 10
+Strava Transformer - 2024-01-05 17:21:12,024 - INFO - Data imported succesfully!
+Strava Transformer - 2024-01-05 17:21:12,077 - INFO - Dropping cols...
+Strava Transformer - 2024-01-05 17:21:12,081 - INFO - Cols dropped...
+Strava Transformer - 2024-01-05 17:21:12,082 - INFO - Converted distance units.
+Strava Transformer - 2024-01-05 17:21:12,083 - INFO - Converted speed units.
+Strava Transformer - 2024-01-05 17:21:12,083 - INFO - Converted elevation units.
+Strava Transformer - 2024-01-05 17:21:12,085 - INFO - Error in transform method:time data "2023-12-31T07:54:44Z" doesn't match format "%Y-%m-%d %H:%M:%S.%f", at position 0. You might want to try:
+    - passing `format` if your strings have a consistent format;
+    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;
+    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.
+Strava Transformer - 2024-01-05 17:21:12,085 - ERROR - Error in load method: 'NoneType' object has no attribute 'columns'
+Strava Transformer - 2024-01-05 17:21:12,085 - INFO - ETL job complete.
+Strava Transformer - 2024-01-05 17:24:14,508 - INFO - Starting ETL job.
+Strava Transformer - 2024-01-05 17:24:14,508 - INFO - Requesting Token...
+
+Strava Transformer - 2024-01-05 17:24:14,757 - INFO - Importing data...
+Strava Transformer - 2024-01-05 17:24:17,738 - INFO - Copying Page: 1
+Strava Transformer - 2024-01-05 17:24:21,586 - INFO - Copying Page: 2
+Strava Transformer - 2024-01-05 17:24:25,588 - INFO - Copying Page: 3
+Strava Transformer - 2024-01-05 17:24:30,691 - INFO - Copying Page: 4
+Strava Transformer - 2024-01-05 17:24:34,582 - INFO - Copying Page: 5
+Strava Transformer - 2024-01-05 17:24:38,855 - INFO - Copying Page: 6
+Strava Transformer - 2024-01-05 17:24:43,203 - INFO - Copying Page: 7
+Strava Transformer - 2024-01-05 17:24:47,072 - INFO - Copying Page: 8
+Strava Transformer - 2024-01-05 17:24:51,810 - INFO - Copying Page: 9
+Strava Transformer - 2024-01-05 17:24:54,648 - INFO - Copying Page: 10
+Strava Transformer - 2024-01-05 17:24:54,649 - INFO - Data imported succesfully!
+Strava Transformer - 2024-01-05 17:24:54,696 - INFO - Dropping cols...
+Strava Transformer - 2024-01-05 17:24:54,697 - INFO - Cols dropped...
+Strava Transformer - 2024-01-05 17:24:54,698 - INFO - Converted distance units.
+Strava Transformer - 2024-01-05 17:24:54,699 - INFO - Converted speed units.
+Strava Transformer - 2024-01-05 17:24:54,699 - INFO - Converted elevation units.
+Strava Transformer - 2024-01-05 17:24:54,712 - INFO - Created time bins.
+Strava Transformer - 2024-01-05 17:24:55,490 - INFO - Table not found. Batch loading activities.
+Strava Transformer - 2024-01-05 17:25:00,059 - INFO - ETL job complete.
+Strava Transformer - 2024-01-05 21:10:31,476 - INFO - Starting ETL job.
+Strava Transformer - 2024-01-05 21:10:31,477 - INFO - Requesting Token...
+
+Strava Transformer - 2024-01-05 21:10:31,878 - INFO - Importing data...
+Strava Transformer - 2024-01-05 21:10:35,399 - INFO - Copying Page: 1
+Strava Transformer - 2024-01-05 21:10:40,616 - INFO - Copying Page: 2
+Strava Transformer - 2024-01-05 21:10:47,642 - INFO - Copying Page: 3
+Strava Transformer - 2024-01-05 21:10:56,282 - INFO - Copying Page: 4
+Strava Transformer - 2024-01-05 21:11:02,503 - INFO - Copying Page: 5
+Strava Transformer - 2024-01-05 21:11:09,950 - INFO - Copying Page: 6
+Strava Transformer - 2024-01-05 21:11:17,727 - INFO - Copying Page: 7
+Strava Transformer - 2024-01-05 21:11:24,687 - INFO - Copying Page: 8
+Strava Transformer - 2024-01-05 21:11:30,652 - INFO - Copying Page: 9
+Strava Transformer - 2024-01-05 21:11:34,965 - INFO - Copying Page: 10
+Strava Transformer - 2024-01-05 21:11:34,966 - INFO - Data imported succesfully!
+Strava Transformer - 2024-01-05 21:11:35,009 - INFO - Dropping cols...
+Strava Transformer - 2024-01-05 21:11:35,013 - INFO - Cols dropped...
+Strava Transformer - 2024-01-05 21:11:35,014 - INFO - Converted distance units.
+Strava Transformer - 2024-01-05 21:11:35,014 - INFO - Converted speed units.
+Strava Transformer - 2024-01-05 21:11:35,014 - INFO - Converted elevation units.
+Strava Transformer - 2024-01-05 21:11:35,024 - INFO - Created time bins.
+Strava Transformer - 2024-01-05 21:11:36,406 - ERROR - Error in load method: 400 Unrecognized name: start_date at [2:31]
+
+Location: us-west2
+Job ID: 0a5ae3f6-6d4b-4c50-b852-475dde3483c1
+
+Strava Transformer - 2024-01-05 21:11:36,407 - INFO - ETL job complete.
+Strava Transformer - 2024-01-05 21:17:21,866 - INFO - Starting ETL job.
+Strava Transformer - 2024-01-05 21:17:35,660 - INFO - Starting ETL job.
+Strava Transformer - 2024-01-05 21:17:35,661 - INFO - Requesting Token...
+
+Strava Transformer - 2024-01-05 21:17:36,012 - INFO - Importing data...
+Strava Transformer - 2024-01-05 21:17:36,697 - INFO - Copying Page: 1
+Strava Transformer - 2024-01-05 21:17:36,697 - INFO - Data imported succesfully!
+Strava Transformer - 2024-01-05 21:17:36,702 - INFO - Dropping cols...
+Strava Transformer - 2024-01-05 21:17:36,703 - INFO - Cols dropped...
+Strava Transformer - 2024-01-05 21:17:36,704 - INFO - Converted distance units.
+Strava Transformer - 2024-01-05 21:17:36,705 - INFO - Converted speed units.
+Strava Transformer - 2024-01-05 21:17:36,706 - INFO - Converted elevation units.
+Strava Transformer - 2024-01-05 21:17:36,709 - INFO - Created time bins.
+Strava Transformer - 2024-01-05 21:17:37,938 - ERROR - Error in load method: 400 Unrecognized name: start_date at [2:31]
+
+Location: us-west2
+Job ID: 9b6e47fa-e6f8-4266-a62e-61f63326dec6
+
+Strava Transformer - 2024-01-05 21:17:37,939 - INFO - ETL job complete.
+Strava Transformer - 2024-01-05 21:18:20,684 - INFO - Starting ETL job.
+Strava Transformer - 2024-01-05 21:18:20,684 - INFO - Requesting Token...
+
+Strava Transformer - 2024-01-05 21:18:20,855 - INFO - Importing data...
+Strava Transformer - 2024-01-05 21:18:23,837 - INFO - Copying Page: 1
+Strava Transformer - 2024-01-05 21:18:27,915 - INFO - Copying Page: 2
+Strava Transformer - 2024-01-05 21:18:31,566 - INFO - Copying Page: 3
+Strava Transformer - 2024-01-05 21:18:35,473 - INFO - Copying Page: 4
+Strava Transformer - 2024-01-05 21:18:38,790 - INFO - Copying Page: 5
+Strava Transformer - 2024-01-05 21:18:43,372 - INFO - Copying Page: 6
+Strava Transformer - 2024-01-05 21:18:48,055 - INFO - Copying Page: 7
+Strava Transformer - 2024-01-05 21:18:52,536 - INFO - Copying Page: 8
+Strava Transformer - 2024-01-05 21:18:55,010 - INFO - Copying Page: 9
+Strava Transformer - 2024-01-05 21:18:56,859 - INFO - Copying Page: 10
+Strava Transformer - 2024-01-05 21:18:56,859 - INFO - Data imported succesfully!
+Strava Transformer - 2024-01-05 21:18:56,902 - INFO - Dropping cols...
+Strava Transformer - 2024-01-05 21:18:56,904 - INFO - Cols dropped...
+Strava Transformer - 2024-01-05 21:18:56,904 - INFO - Converted distance units.
+Strava Transformer - 2024-01-05 21:18:56,905 - INFO - Converted speed units.
+Strava Transformer - 2024-01-05 21:18:56,905 - INFO - Converted elevation units.
+Strava Transformer - 2024-01-05 21:18:56,911 - INFO - Created time bins.
+Strava Transformer - 2024-01-05 21:18:58,752 - ERROR - Error in load method: 'start_date'
+Strava Transformer - 2024-01-05 21:18:58,752 - INFO - ETL job complete.
+Strava Transformer - 2024-01-05 21:19:41,748 - INFO - Starting ETL job.
+Strava Transformer - 2024-01-05 21:19:41,748 - INFO - Requesting Token...
+
+Strava Transformer - 2024-01-05 21:19:41,960 - INFO - Importing data...
+Strava Transformer - 2024-01-05 21:19:44,403 - INFO - Copying Page: 1
+Strava Transformer - 2024-01-05 21:19:47,552 - INFO - Copying Page: 2
+Strava Transformer - 2024-01-05 21:19:51,392 - INFO - Copying Page: 3
+Strava Transformer - 2024-01-05 21:19:57,506 - INFO - Copying Page: 4
+Strava Transformer - 2024-01-05 21:20:00,415 - INFO - Copying Page: 5
+Strava Transformer - 2024-01-05 21:20:04,062 - INFO - Copying Page: 6
+Strava Transformer - 2024-01-05 21:20:07,130 - INFO - Copying Page: 7
+Strava Transformer - 2024-01-05 21:20:11,275 - INFO - Copying Page: 8
+Strava Transformer - 2024-01-05 21:20:15,167 - INFO - Copying Page: 9
+Strava Transformer - 2024-01-05 21:20:17,965 - INFO - Copying Page: 10
+Strava Transformer - 2024-01-05 21:20:17,966 - INFO - Data imported succesfully!
+Strava Transformer - 2024-01-05 21:20:18,017 - INFO - Dropping cols...
+Strava Transformer - 2024-01-05 21:20:18,019 - INFO - Cols dropped...
+Strava Transformer - 2024-01-05 21:20:18,020 - INFO - Converted distance units.
+Strava Transformer - 2024-01-05 21:20:18,020 - INFO - Converted speed units.
+Strava Transformer - 2024-01-05 21:20:18,021 - INFO - Converted elevation units.
+Strava Transformer - 2024-01-05 21:20:18,028 - INFO - Created time bins.
+Strava Transformer - 2024-01-05 21:20:19,771 - ERROR - Error in load method: 'start_date'
+Strava Transformer - 2024-01-05 21:20:19,772 - INFO - ETL job complete.
+Strava Transformer - 2024-01-05 21:26:24,931 - INFO - Starting ETL job.
+Strava Transformer - 2024-01-05 21:26:38,156 - INFO - Starting ETL job.
+Strava Transformer - 2024-01-05 21:26:38,156 - INFO - Requesting Token...
+
+Strava Transformer - 2024-01-05 21:26:38,395 - INFO - Importing data...
+Strava Transformer - 2024-01-05 21:26:40,463 - INFO - Copying Page: 1
+Strava Transformer - 2024-01-05 21:26:40,463 - INFO - Data imported succesfully!
+Strava Transformer - 2024-01-05 21:26:40,469 - INFO - Dropping cols...
+Strava Transformer - 2024-01-05 21:26:40,470 - INFO - Cols dropped...
+Strava Transformer - 2024-01-05 21:26:40,471 - INFO - Converted distance units.
+Strava Transformer - 2024-01-05 21:26:40,471 - INFO - Converted speed units.
+Strava Transformer - 2024-01-05 21:26:40,471 - INFO - Converted elevation units.
+Strava Transformer - 2024-01-05 21:26:40,474 - INFO - Created time bins.
+Strava Transformer - 2024-01-05 21:26:42,409 - INFO - Data up to date!
+Strava Transformer - 2024-01-05 21:26:42,409 - INFO - ETL job complete.
+Strava Transformer - 2024-01-05 21:28:12,664 - INFO - Starting ETL job.
+Strava Transformer - 2024-01-05 21:28:12,664 - INFO - Requesting Token...
+
+Strava Transformer - 2024-01-05 21:28:13,165 - INFO - Importing data...
+Strava Transformer - 2024-01-05 21:28:15,065 - INFO - Copying Page: 1
+Strava Transformer - 2024-01-05 21:28:18,574 - INFO - Copying Page: 2
+Strava Transformer - 2024-01-05 21:28:22,220 - INFO - Copying Page: 3
+Strava Transformer - 2024-01-05 21:28:27,293 - INFO - Copying Page: 4
+Strava Transformer - 2024-01-05 21:28:30,370 - INFO - Copying Page: 5
+Strava Transformer - 2024-01-05 21:28:34,333 - INFO - Copying Page: 6
+Strava Transformer - 2024-01-05 21:28:38,905 - INFO - Copying Page: 7
+Strava Transformer - 2024-01-05 21:28:41,550 - INFO - Copying Page: 8
+Strava Transformer - 2024-01-05 21:28:44,769 - INFO - Copying Page: 9
+Strava Transformer - 2024-01-05 21:28:46,448 - INFO - Copying Page: 10
+Strava Transformer - 2024-01-05 21:28:46,448 - INFO - Data imported succesfully!
+Strava Transformer - 2024-01-05 21:28:46,492 - INFO - Dropping cols...
+Strava Transformer - 2024-01-05 21:28:46,493 - INFO - Cols dropped...
+Strava Transformer - 2024-01-05 21:28:46,494 - INFO - Converted distance units.
+Strava Transformer - 2024-01-05 21:28:46,494 - INFO - Converted speed units.
+Strava Transformer - 2024-01-05 21:28:46,494 - INFO - Converted elevation units.
+Strava Transformer - 2024-01-05 21:28:46,500 - INFO - Created time bins.
+Strava Transformer - 2024-01-05 21:28:47,192 - INFO - Table not found. Batch loading activities.
+Strava Transformer - 2024-01-05 21:28:55,370 - INFO - ETL job complete.
