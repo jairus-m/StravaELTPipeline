@@ -4,7 +4,7 @@ Utils Module:
 Author: Jairus Martinez
 Date: 12/21/2023
 
-This module contains functions needed Slack notifications
+This module contains functions needed for Slack notifications
 """
 from slack_sdk import WebClient
 #from slack_sdk.errors import SlackApiError

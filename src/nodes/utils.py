@@ -6,8 +6,6 @@ Date: 12/21/2023
 
 This module contains any utility functions needed for the ETL code.
 """
-class MyCustomError(Exception):
-    pass
 class UnitConversion():
     """Class to convert units in Strava Data"""
     def sec_to_min(self, x: float):
