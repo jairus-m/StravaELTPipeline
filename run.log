@@ -405,3 +405,31 @@ Strava Transformer - 2024-01-05 21:28:46,494 - INFO - Converted elevation units.
 Strava Transformer - 2024-01-05 21:28:46,500 - INFO - Created time bins.
 Strava Transformer - 2024-01-05 21:28:47,192 - INFO - Table not found. Batch loading activities.
 Strava Transformer - 2024-01-05 21:28:55,370 - INFO - ETL job complete.
+Strava Transformer - 2024-01-05 21:47:18,957 - INFO - Starting ETL job.
+Strava Transformer - 2024-01-05 21:47:18,957 - INFO - Requesting Token...
+
+Strava Transformer - 2024-01-05 21:47:19,237 - INFO - Importing data...
+Strava Transformer - 2024-01-05 21:47:20,145 - INFO - Copying Page: 1
+Strava Transformer - 2024-01-05 21:47:20,145 - INFO - Data imported succesfully!
+Strava Transformer - 2024-01-05 21:47:20,155 - INFO - Dropping cols...
+Strava Transformer - 2024-01-05 21:47:20,167 - INFO - Cols dropped...
+Strava Transformer - 2024-01-05 21:47:20,169 - INFO - Converted distance units.
+Strava Transformer - 2024-01-05 21:47:20,171 - INFO - Converted speed units.
+Strava Transformer - 2024-01-05 21:47:20,172 - INFO - Converted elevation units.
+Strava Transformer - 2024-01-05 21:47:20,183 - INFO - Created time bins.
+Strava Transformer - 2024-01-05 21:47:21,969 - INFO - Data up to date!
+Strava Transformer - 2024-01-05 21:47:21,970 - INFO - ETL job complete.
+Strava Transformer - 2024-01-05 21:47:28,010 - INFO - Starting ETL job.
+Strava Transformer - 2024-01-05 21:47:28,010 - INFO - Requesting Token...
+
+Strava Transformer - 2024-01-05 21:47:28,225 - INFO - Importing data...
+Strava Transformer - 2024-01-05 21:47:28,901 - INFO - Copying Page: 1
+Strava Transformer - 2024-01-05 21:47:28,902 - INFO - Data imported succesfully!
+Strava Transformer - 2024-01-05 21:47:28,905 - INFO - Dropping cols...
+Strava Transformer - 2024-01-05 21:47:28,906 - INFO - Cols dropped...
+Strava Transformer - 2024-01-05 21:47:28,907 - INFO - Converted distance units.
+Strava Transformer - 2024-01-05 21:47:28,907 - INFO - Converted speed units.
+Strava Transformer - 2024-01-05 21:47:28,907 - INFO - Converted elevation units.
+Strava Transformer - 2024-01-05 21:47:28,910 - INFO - Created time bins.
+Strava Transformer - 2024-01-05 21:47:30,533 - INFO - Data up to date!
+Strava Transformer - 2024-01-05 21:47:30,534 - INFO - ETL job complete.
