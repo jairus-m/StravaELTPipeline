@@ -8,7 +8,7 @@ This module contains any utility functions needed for the ETL code.
 """
 class UnitConversion():
     """Class to convert units in Strava Data"""
-    def sec_to_min(self, x: float):
+    def sec_to_min(self, x: float) -> float:
         """
         Converts seconds to minutes.
 
@@ -19,7 +19,7 @@ class UnitConversion():
         minutes =  x / 60
         return round(minutes,2)
 
-    def meters_to_miles(self, x: float):
+    def meters_to_miles(self, x: float) -> float:
         """
         Converts meters to miles.
 
@@ -30,7 +30,7 @@ class UnitConversion():
         miles = x / 1609.344
         return round(miles, 2)
 
-    def meters_to_feet(self, x: float):
+    def meters_to_feet(self, x: float) -> float:
         """
         Converts meters to feet.
 
@@ -41,7 +41,7 @@ class UnitConversion():
         feet = x * 3.28084
         return round(feet, 2)
 
-    def mps_to_mph(self, x: float):
+    def mps_to_mph(self, x: float) -> float:
         """
         Converts meters per second (mpd) to 
         miles per hour (mph).

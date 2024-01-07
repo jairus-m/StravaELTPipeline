@@ -29,7 +29,7 @@ class StravaETL():
         self.cols_to_drop = cols_to_drop
         self._logger = logging.getLogger(__name__)
 
-    def extract(self):
+    def extract(self) -> pd.DataFrame:
         """
         Reads in the raw, source data.
 
@@ -65,7 +65,7 @@ class StravaETL():
             self._logger.error(f'Error in extract method:{e}')
             raise
 
-    def transform(self):
+    def transform(self) -> pd.DataFrame:
         """
         Clean and processes raw activity data to a useable dataset.
 
@@ -116,7 +116,7 @@ class StravaETL():
             self._logger.info(f'Error in transform method:{e}')
             raise
     
-    def load(self, bqc: BigQueryConnector, project_name: str, dataset_name: str, table_name: str, sql_query: str, date_col_name: str):
+    def load(self, bqc: BigQueryConnector, project_name: str, dataset_name: str, table_name: str, sql_query: str, date_col_name: str) -> pd.DataFrame:
         """
         Uploads data to BigQuery
 

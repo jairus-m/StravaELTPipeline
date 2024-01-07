@@ -27,9 +27,8 @@ class StravaAPIConnector():
         self.strava_auth_url = strava_auth_url
         self.strava_activities_url = strava_activities_url
         self.strava_payload = strava_payload
-        self._logger = logging.getLogger(__name__)
         
-    def get_header(self):
+    def get_header(self) -> dict:
         """
         Method to get the header needed for authorization to retrieve data.
 
@@ -40,18 +39,19 @@ class StravaAPIConnector():
         res = requests.post(self.strava_auth_url,data=self.strava_payload,
                             verify=False, timeout=(10,10))
         
-        if str(res) == '<Response [200]>':
+        if res.status_code == 200:
             access_token = res.json()['access_token']
             header = {'Authorization': 'Bearer ' + access_token}
             return header
     
-    def get_dataset(self, actv_per_page: int, request_page_number: int, header: dict):
+    def get_dataset(self, actv_per_page: int, request_page_number: int, header: dict) -> list:
         """
         Method to get dataset from iterated page
 
         :param actv_per_page: the number of activities per page to extract from
         :param request_page_numer: iterated page number to extract from
         :param header: dict containing authorization and access_token
+        :return dataset: list containing activities as dicts
         """
         # set the params to be able to extract from requests.get
         param = {'per_page': actv_per_page, 'page':request_page_number}
