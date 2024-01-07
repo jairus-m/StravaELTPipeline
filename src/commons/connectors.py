@@ -12,6 +12,7 @@ from google.cloud import bigquery
 from google.cloud.exceptions import NotFound
 import pyarrow
 from datetime import datetime, timedelta
+import requests
 
 class StravaAPIConnector():
     """Class for interacting with Strava API"""
@@ -27,7 +28,38 @@ class StravaAPIConnector():
         self.strava_activities_url = strava_activities_url
         self.strava_payload = strava_payload
         self._logger = logging.getLogger(__name__)
+        
+    def get_header(self):
+        """
+        Method to get the header needed for authorization to retrieve data.
 
+        :return header: dict containing authorization and access_token 
+        :rtype dict: 
+        """ 
+        # send request 
+        res = requests.post(self.strava_auth_url,data=self.strava_payload,
+                            verify=False, timeout=(10,10))
+        
+        if str(res) == '<Response [200]>':
+            access_token = res.json()['access_token']
+            header = {'Authorization': 'Bearer ' + access_token}
+            return header
+    
+    def get_dataset(self, actv_per_page: int, request_page_number: int, header: dict):
+        """
+        Method to get dataset from iterated page
+
+        :param actv_per_page: the number of activities per page to extract from
+        :param request_page_numer: iterated page number to extract from
+        :param header: dict containing authorization and access_token
+        """
+        # set the params to be able to extract from requests.get
+        param = {'per_page': actv_per_page, 'page':request_page_number}
+        dataset = (
+            requests.get(self.strava_activities_url, headers=header,
+                        params=param, timeout=(10,10)).json()
+            )
+        return dataset
 class BigQueryConnector():
     """Class for interacting with BigQuery data wharehouse"""
     def __init__(self, service_account_json: dict, location: str = 'US', timeout: int = 30):

@@ -14,21 +14,16 @@ from commons.utils import UnitConversion
 
 class StravaETL():
     """Reads in Strava data and writes to BigQuery (extract, transform, and load)"""
-    def __init__(self, strava_auth_url: StravaAPIConnector, strava_activities_url: StravaAPIConnector,
-                 strava_payload: StravaAPIConnector, max_page_num: int, actv_per_page: int, cols_to_drop: list):
+    def __init__(self, strava_api_connector: StravaAPIConnector, max_page_num: int, actv_per_page: int, cols_to_drop: list):
         """
         Constructor for StravaETL class.
 
-        :param strava_auth_url: strava authorization url
-        :param strava_activities_url: strava athlete activities url
-        :param strava_payload: dict containing client_id, client_secret, refresh_token, grant_type, f
+        :param strava_api_connector: StravaAPIConnector instance
         :param max_page_num: max pages to read through (pages contain activity data)
         :param actv_per_page: number of activities read per page
         :param cols_to_drop: col names to drop from data
         """
-        self.strava_auth_url = strava_auth_url
-        self.strava_activities_url = strava_activities_url
-        self.strava_payload = strava_payload
+        self.strava_api_connector = strava_api_connector
         self.max_page_num = max_page_num
         self.actv_per_page = actv_per_page
         self.cols_to_drop = cols_to_drop
@@ -43,25 +38,20 @@ class StravaETL():
         """
         try:
             self._logger.info("Requesting Token...")
-            res = requests.post(self.strava_auth_url,data=self.strava_payload,
-                                verify=False, timeout=(10,10))
-            access_token = res.json()['access_token']
+            header = self.strava_api_connector.get_header()
 
-            header = {'Authorization': 'Bearer ' + access_token}
-            # set number of pages to read through
+            # save data into list and set maximum pages to iterate through
             page_list = list(np.arange(1, self.max_page_num))
-            # save data into list
             all_activities = []
 
             self._logger.info('Importing data...')
 
             # read in n activities per page
             for request_page_number in page_list:
-                param = {'per_page': self.actv_per_page, 'page':request_page_number}
-                my_dataset = (
-                    requests.get(self.strava_activities_url, headers=header,
-                                params=param, timeout=(10,10)).json()
-                    )
+
+                # extracts data from page n
+                my_dataset = self.strava_api_connector.get_dataset(self.actv_per_page, request_page_number, header)
+
                 if len(all_activities) == 0:
                     all_activities = my_dataset
                     self._logger.info('Copying Page: %s', request_page_number)
@@ -72,7 +62,7 @@ class StravaETL():
             self._logger.info('Data imported succesfully!')
             return pd.json_normalize(all_activities)
         except Exception as e:
-            self._logger(f'Error in extract method:{e}')
+            self._logger.error(f'Error in extract method:{e}')
             raise
 
     def transform(self):

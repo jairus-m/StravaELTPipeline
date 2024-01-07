@@ -72,13 +72,18 @@ class TestSlackNotifications(unittest.TestCase):
 
     @patch("src.commons.slack_notifications.datetime")
     def test_timing_message(self, mock_datetime):
-        # Mocking datetime.now() directly
+        """
+        Test for correct call of timing_message.
+        """
+        # mocking datetime.now() directly
         mock_datetime.datetime.now.return_value = datetime(2024, 1, 6, 12, 34, 56)
 
+        # setting the expected values for text to be sent
         job = "Test Job"
         duration = 10.123
         expected_text = "Job: Test Job\nDate: 2024-01-06\nTime: 12:34:56\nDuration: 10.12s"
 
+        # call timing_message()
         self.slack_notifications.timing_message(job, duration)
         self.mock_client.chat_postMessage.assert_called_once_with(channel=f"#{self.channel}", text=expected_text)
 

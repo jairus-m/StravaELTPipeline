@@ -13,7 +13,7 @@ def parse_config():
     parser = argparse.ArgumentParser(description='Run the Strava EL Job.')
     parser.add_argument('config', help='A configuration file in YAML format.')
     args = parser.parse_args()
-    config = yaml.safe_load(open(args.config))
+    config = yaml.safe_load(open(args.config, encoding='utf-8'))
     return config
 
 def initialize_logging(config):
@@ -48,9 +48,7 @@ def initialize_connectors(config):
         config['strava_api']['STRAVA_PAYLOAD']
     )
     setl = StravaETL(
-        sac.strava_auth_url,
-        sac.strava_activities_url,
-        sac.strava_payload,
+        sac,
         config['strava_api']['pages'],
         config['strava_api']['num_activities'],
         config['strava_api']['cols_to_drop']
@@ -94,8 +92,7 @@ def main():
         slack.timing_message(job='strava_etl', duration=duration)
         slack.send_custom_message('Job succeeded!')
     except Exception as e:
-        logger.error('Error in main method: %s', e)
-        slack.send_custom_message(f'Date: {datetime.datetime.now()}\nJob failed. Please check logs.')
+        slack.send_custom_message(f'Date: {datetime.datetime.now()}\nStravaETL job failed. Please check logs.')
 
 if __name__ == '__main__':
     main()
