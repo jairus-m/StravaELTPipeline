@@ -9,8 +9,8 @@ import logging
 import pandas as pd
 import numpy as np
 import requests
-from nodes.connectors import StravaAPIConnector, BigQueryConnector
-from nodes.utils import UnitConversion
+from commons.connectors import StravaAPIConnector, BigQueryConnector
+from commons.utils import UnitConversion
 
 class StravaETL():
     """Reads in Strava data and writes to BigQuery (extract, transform, and load)"""

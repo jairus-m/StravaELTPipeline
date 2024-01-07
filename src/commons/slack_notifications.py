@@ -7,7 +7,7 @@ Date: 12/21/2023
 This module contains functions needed for Slack notifications
 """
 from slack_sdk import WebClient
-#from slack_sdk.errors import SlackApiError
+from slack_sdk.errors import SlackApiError
 import datetime
 
 class SlackNotifications():
@@ -49,6 +49,3 @@ class SlackNotifications():
         # send message 
         self.client.chat_postMessage(channel=self.channel, text=text)
         return True
-
-        
-

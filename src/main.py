@@ -4,8 +4,8 @@ import logging.config
 import yaml
 import time
 import datetime
-from nodes.connectors import StravaAPIConnector, BigQueryConnector
-from nodes.slack_notifications import SlackNotifications
+from commons.connectors import StravaAPIConnector, BigQueryConnector
+from commons.slack_notifications import SlackNotifications
 from transformers.strava_etl import StravaETL
 
 def parse_config():
