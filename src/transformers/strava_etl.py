@@ -135,7 +135,8 @@ class StravaETL():
             table_id = ".".join([project_name, dataset_name, table_name])
 
             if bqc.table_exists(dataset_name, table_name) is True:
-                df_new = bqc.newest_data(df, sql_query, date_col_name)
+                df_to_compare = bqc.query_table(sql_query)
+                df_new = bqc.newest_data(df, df_to_compare, date_col_name)
                 if len(df_new) > 0:
                     self._logger.info('Appending new data... %s new activities.', len(df_new))
                     bqc.append_to_table(table_id, df_new)
