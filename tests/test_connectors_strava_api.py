@@ -1,5 +1,5 @@
 """
-Connectors Tests
+Connectors Tests : Strava API
 
 Author: Jairus Martinez
 Date: 1/07/2024
@@ -10,7 +10,7 @@ from unittest.mock import MagicMock, patch
 import yaml
 parentdir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.sys.path.insert(0,parentdir) 
-from src.commons.connectors import StravaAPIConnector, BigQueryConnector
+from src.commons.connectors import StravaAPIConnector
 
 class TestStravaAPIConnector(unittest.TestCase):
     """Test suite for StravaAPI Connector"""

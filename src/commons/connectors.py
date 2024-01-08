@@ -22,7 +22,7 @@ class StravaAPIConnector():
 
         :param strava_auth_url: strava authorization url
         :param strava_activities_url: strava athlete activities url
-        :param strava_payload: dict containing client_id, client_secret, refresh_token, grant_type, f
+        :param strava_payload: dict containing client_id, client_secret, refresh_token, grant_type,
         """
         self.strava_auth_url = strava_auth_url
         self.strava_activities_url = strava_activities_url
