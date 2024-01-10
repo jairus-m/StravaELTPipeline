@@ -18,7 +18,12 @@ class TestStravaAPIConnector(unittest.TestCase):
         self.connector = StravaAPIConnector(
             strava_auth_url='auth_url',
             strava_activities_url='activities_url',
-            strava_payload={'client_id': 'id', 'client_secret': 'secret', 'refresh_token': 'token', 'grant_type': 'type', 'f': 'format'}
+            strava_payload={
+                'client_id': 'id', 
+                'client_secret': 'secret', 
+                'refresh_token': 'token', 
+                'grant_type': 'type', 
+                'f': 'format'}
         )
 
     @patch('src.commons.connectors.requests.post')
@@ -32,7 +37,10 @@ class TestStravaAPIConnector(unittest.TestCase):
         
         header = self.connector.get_header()
 
-        mock_post.assert_called_once_with('auth_url', data={'client_id': 'id', 'client_secret': 'secret', 'refresh_token': 'token', 'grant_type': 'type', 'f': 'format'}, verify=False, timeout=(10, 10))
+        mock_post.assert_called_once_with('auth_url', 
+                                          data=self.connector.strava_payload, 
+                                          verify=False, 
+                                          timeout=(10, 10))
         self.assertEqual(header, {'Authorization': 'Bearer dummy_token'})
 
     @patch('src.commons.connectors.requests.post')
@@ -44,7 +52,10 @@ class TestStravaAPIConnector(unittest.TestCase):
         mock_response.return_value.status_code = 400  
         header = self.connector.get_header()
 
-        mock_post.assert_called_once_with('auth_url', data={'client_id': 'id', 'client_secret': 'secret', 'refresh_token': 'token', 'grant_type': 'type', 'f': 'format'}, verify=False, timeout=(10, 10))
+        mock_post.assert_called_once_with('auth_url', 
+                                          data=self.connector.strava_payload, 
+                                          verify=False, 
+                                          timeout=(10, 10))
         self.assertIsNone(header)
 
     @patch('src.commons.connectors.requests.get')
@@ -58,7 +69,10 @@ class TestStravaAPIConnector(unittest.TestCase):
 
         dataset = self.connector.get_dataset(actv_per_page=10, request_page_number=1, header=mock_header)
 
-        mock_get.assert_called_once_with('activities_url', headers=mock_header, params={'per_page': 10, 'page': 1}, timeout=(10, 10))
+        mock_get.assert_called_once_with('activities_url', 
+                                         headers=mock_header, 
+                                         params={'per_page': 10, 'page': 1}, 
+                                         timeout=(10, 10))
         self.assertEqual(dataset, [{'col_names': 'values'}])
 
 if __name__ == '__main__':

@@ -8,7 +8,6 @@ This module contains the extract, transform, and load pipeline code.
 import logging
 import pandas as pd
 import numpy as np
-import requests
 from commons.connectors import StravaAPIConnector, BigQueryConnector
 from commons.utils import UnitConversion
 
@@ -64,17 +63,16 @@ class StravaETL():
         except Exception as e:
             self._logger.error(f'Error in extract method:{e}')
             raise
-
-    def transform(self) -> pd.DataFrame:
+    
+    def transform(self, df: pd.DataFrame) -> pd.DataFrame:
         """
         Clean and processes raw activity data to a useable dataset.
 
+        :param df: DataFrame to transform
         :returns: cleaned strava activitiy dataframe
         :rtype: pd.DataFrame
         """
         try:
-            df = self.extract()
-
             # cols to drop
             self._logger.info('Dropping cols...')
             
@@ -128,7 +126,8 @@ class StravaETL():
         :param date_col_name: name of the date col to asses freshness by
         """
         try:
-            df = self.transform()
+            # self.extract() raw dataframe as an argument for self.transform() 
+            df = self.transform(self.extract())
             df.columns = df.columns.str.replace('.', '_')
 
             # project.dataset.table format

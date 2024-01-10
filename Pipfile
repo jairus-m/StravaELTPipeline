@@ -12,8 +12,10 @@ pyarrow = "*"
 db-dtypes = "*"
 slack-sdk = "*"
 
+
 [dev-packages]
 ipykernel = "*"
+coverage = "*"
 
 [requires]
 python_version = "3.9"

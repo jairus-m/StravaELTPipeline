@@ -8,17 +8,25 @@ import os
 import unittest
 from unittest.mock import MagicMock, patch
 import yaml
-parentdir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-os.sys.path.insert(0,parentdir) 
-from slack_sdk.errors import SlackApiError
-from src.commons.slack_notifications import SlackNotifications
 from datetime import datetime
+from slack_sdk.errors import SlackApiError
+parentdir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+os.sys.path.insert(0,parentdir)
+from src.commons.slack_notifications import SlackNotifications
 
 CONFIG_PATH = '/Users/jairusmartinez/Desktop/strava_etl/configs/configs.yml'
 config = yaml.safe_load(open(CONFIG_PATH , encoding='utf-8'))
 
 class TestSlackNotifications(unittest.TestCase):
-    """Test suite for SlackNotifications"""
+    """
+    Test suite for SlackNotifications
+
+    Tests:
+        test_send_custom_message
+        test_send_custom_message_wrong_token
+        test_send_custom_message_wrong_channel
+        test_timing_message
+    """
     def setUp(self):
         """
         Attributes:
@@ -26,7 +34,8 @@ class TestSlackNotifications(unittest.TestCase):
             token: token for Slack App
             channel: channel that recieves notifications
             slack_notifications: SlackNotifications() class instance
-            slack_notifications.client: mock_client generated for SlackNotifications() class instance
+            slack_notifications.client: mock_client generated for SlackNotifications() 
+            class instance
         """
         self.mock_client = MagicMock()
         self.token = config['slack']['token']
@@ -43,7 +52,9 @@ class TestSlackNotifications(unittest.TestCase):
         result = self.slack_notifications.send_custom_message(text)
 
         # test that chat_postMessage called
-        self.mock_client.chat_postMessage.assert_called_once_with(channel=f"#{self.channel}", text=text)
+        self.mock_client.chat_postMessage.assert_called_once_with(
+            channel=f"#{self.channel}",
+            text=text)
 
         # expect send_custom_message() to return True if called succesfully
         self.assertEqual(result, True)
@@ -85,7 +96,9 @@ class TestSlackNotifications(unittest.TestCase):
 
         # call timing_message()
         self.slack_notifications.timing_message(job, duration)
-        self.mock_client.chat_postMessage.assert_called_once_with(channel=f"#{self.channel}", text=expected_text)
+        self.mock_client.chat_postMessage.assert_called_once_with(
+            channel=f"#{self.channel}",
+            text=expected_text)
 
 if __name__ == "__main__":
     unittest.main()

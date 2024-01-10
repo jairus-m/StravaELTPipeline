@@ -6,14 +6,12 @@ Date: 1/07/2024
 """
 import os
 import unittest
-from unittest.mock import MagicMock, patch
 import pandas as pd
-from google.cloud import bigquery
 from google.cloud.exceptions import NotFound
 import pyarrow
 import yaml
 parentdir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-os.sys.path.insert(0,parentdir) 
+os.sys.path.insert(0,parentdir)
 from src.commons.connectors import BigQueryConnector
 
 CONFIG_PATH = '/Users/jairusmartinez/Desktop/strava_etl/configs/configs.yml'
@@ -42,7 +40,7 @@ class TestBigQueryConnector(unittest.TestCase):
             print(f"Dataset {self.dataset_id} deleted successfully.")
         except NotFound:
             print(f"Dataset {self.dataset_id} not found. Deletion skipped.")
-        
+
     def test_upload_table(self):
         """Test uploaded table to test dataset"""
         df = pd.DataFrame({'col1': [1, 2], 'col2': ['a', 'b']})
@@ -61,7 +59,9 @@ class TestBigQueryConnector(unittest.TestCase):
         expected_df = pd.DataFrame({'id': [3], 'date_col': ['2022-01-03']})
         filtered_df = self.bqc.newest_data(df, df_to_compare, date_col_name).reset_index(drop=True)
 
-        pd.testing.assert_frame_equal(expected_df.sort_index(axis=1), filtered_df.sort_index(axis=1), check_dtype=False)
+        pd.testing.assert_frame_equal(expected_df.sort_index(axis=1), 
+                                      filtered_df.sort_index(axis=1), 
+                                      check_dtype=False)
 
     def test_append_to_table(self):
         """Append to existing table test"""
@@ -76,7 +76,6 @@ class TestBigQueryConnector(unittest.TestCase):
        # upload table
        df = pd.DataFrame({'col1': [1, 2], 'col2': ['a', 'b']})
        self.bqc.upload_table(self.table_id, df)
-       
        result = self.bqc.table_exists(self.dataset, self.table)
        self.assertTrue(result)
 
@@ -92,7 +91,9 @@ class TestBigQueryConnector(unittest.TestCase):
 
         result_df = self.bqc.query_table(sql_query)
 
-        pd.testing.assert_frame_equal(expected_df.sort_index(axis=1), result_df.sort_index(axis=1), check_dtype=False)
+        pd.testing.assert_frame_equal(expected_df.sort_index(axis=1),
+                                      result_df.sort_index(axis=1),
+                                      check_dtype=False)
 
 if __name__ == '__main__':
     unittest.main()
