@@ -12,7 +12,6 @@ import pandas as pd
 import numpy as np
 parentdir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.sys.path.insert(0,parentdir)
-from src import commons
 from src.commons.connectors import StravaAPIConnector
 from src.transformers.strava_etl import StravaETL
 

@@ -116,7 +116,7 @@ class BigQueryConnector():
         :returns: filtered dataframe
         """
         # grab the latest date (latest date - 1 day)
-        latest_date = pd.to_datetime(df_to_compare[date_col_name]).sort_index().dt.date[0] - timedelta(days=1)
+        latest_date = pd.to_datetime(df_to_compare[date_col_name]).sort_index().dt.date[0] - timedelta(days=7)
 
         # create mask and filter data (greater than latest data AND activity 'id' not found in latest query)
         mask = (pd.to_datetime(df[date_col_name]).sort_index().dt.date > latest_date) & (~df['id'].isin(df_to_compare['id']))

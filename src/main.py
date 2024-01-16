@@ -1,9 +1,9 @@
 import argparse
 import logging
 import logging.config
-import yaml
 import time
 import datetime
+import yaml
 from commons.connectors import StravaAPIConnector, BigQueryConnector
 from commons.slack_notifications import SlackNotifications
 from transformers.strava_etl import StravaETL
@@ -93,6 +93,7 @@ def main():
         slack.send_custom_message('Job succeeded!')
     except Exception as e:
         slack.send_custom_message(f'Date: {datetime.datetime.now()}\nStravaETL job failed. Please check logs.')
+        slack.send_custom_message(f'Exception: {e}')
 
 if __name__ == '__main__':
     main()
