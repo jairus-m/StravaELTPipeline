@@ -2,7 +2,7 @@
 
 ### Demo Project
 
-The goal of this project is to try and implement the skeleton of a decent ETL pipeline. Things to consider are:
+The goal of this project is to try and implement the skeleton of a robust ETL pipeline. Things to consider are:
 - version control
 - development flow
 - file project structure
