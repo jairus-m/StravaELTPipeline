@@ -2,7 +2,7 @@
 
 ### main.py
 - contains the main entry point for executing the ETL pipeline
-    - __CLI command to run ETL job__: ```python path/main.py configs/dev_configs.yml```
+    - __CLI command to run ETL job__: ```python src/main.py configs/dev_configs.yml```
     - main function initializes all the needed connections, parses the config YAML file, then runs the Strava_ETL.load() method
     to execute 
     - Slack notifications are enabled within this main function
