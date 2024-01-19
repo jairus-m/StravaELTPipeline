@@ -12,4 +12,4 @@ ENV PYTHONPATH "${PYTHONPATH}:/strava_etl"
 RUN pip install pipenv
 RUN pipenv install --system --deploy --ignore-pipfile
 
-CMD python src/main.py configs/configs.yml
+CMD python src/main.py configs/prod_configs.yml
