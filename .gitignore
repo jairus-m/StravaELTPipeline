@@ -9,3 +9,6 @@ test_data
 
 #  YML configs
 *.yml
+
+# txt files
+*.txt
