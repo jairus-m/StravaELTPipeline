@@ -12,7 +12,19 @@ from commons.connectors import StravaAPIConnector, BigQueryConnector
 from commons.utils import UnitConversion
 
 class StravaETL():
-    """Reads in Strava data and writes to BigQuery (extract, transform, and load)"""
+    """
+    Reads in Strava data and writes to BigQuery (extract, transform, and load)
+    
+    Attributes:
+        - strava_api_connector: StravaAPIConnector instance
+        - max_page_num: max pages to read through (pages contain activity data)
+        - actv_per_page: number of activities read per page
+        - cols_to_drop: col names to drop from data
+    Methods:
+        - extract: Reads in the raw, source data.
+        - transform: Clean and processes raw activity data to a useable dataset.
+        - load: Uploads data to BigQuery
+    """
     def __init__(self, strava_api_connector: StravaAPIConnector, max_page_num: int, actv_per_page: int, cols_to_drop: list):
         """
         Constructor for StravaETL class.

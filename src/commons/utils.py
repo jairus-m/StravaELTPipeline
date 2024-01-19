@@ -7,7 +7,15 @@ Date: 12/21/2023
 This module contains any utility functions needed for the ETL code.
 """
 class UnitConversion():
-    """Class to convert units in Strava Data"""
+    """
+    Class to convert units in Strava Data
+    
+    Methods:
+        - sec_to_min
+        - meters_to_miles
+        - meters_to_feet
+        - mps_to_mph
+    """
     def sec_to_min(self, x: float) -> float:
         """
         Converts seconds to minutes.
