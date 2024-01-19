@@ -15,14 +15,29 @@ from datetime import datetime, timedelta
 import requests
 
 class StravaAPIConnector():
-    """Class for interacting with Strava API"""
+    """
+    Class for interacting with Strava API
+    
+    Attributes:
+        - strava_auth_url: strava authorization url
+        - strava_activities_url: strava athlete activities url
+        - strava_payload: dict containing client_id, client_secret, refresh_token, grant_type
+
+    Methods:
+        - get_header: get the header needed for API authorization to retrieve data
+        - get_dataset: get dataset from iterated page
+        - newest_data: filters for the freshest data
+        - append_to_table: append data to an existing table in BigQuery
+        - table_exists: checks to see if a table exists
+        - query_table: queries table as a dataframe
+    """
     def __init__(self, strava_auth_url: str, strava_activities_url: str, strava_payload: dict):
         """
         Constructor for StravaAPIConnector class
 
         :param strava_auth_url: strava authorization url
         :param strava_activities_url: strava athlete activities url
-        :param strava_payload: dict containing client_id, client_secret, refresh_token, grant_type,
+        :param strava_payload: dict containing client_id, client_secret, refresh_token, grant_type
         """
         self.strava_auth_url = strava_auth_url
         self.strava_activities_url = strava_activities_url
@@ -61,7 +76,19 @@ class StravaAPIConnector():
             )
         return dataset
 class BigQueryConnector():
-    """Class for interacting with BigQuery data wharehouse"""
+    """
+    Class for interacting with BigQuery data wharehouse
+
+    Attributes:
+        - service_account_json: Google service account credentials/meta
+        - location: location of cloud dataset [default = 'US']
+        - timeout: timeout param for dataset_ref
+    Methods:
+        - create_dataset: create a new dataset in BigQuery
+        - upload_table: upload a table to dataset in project
+        - newest_data: 
+    
+    """
     def __init__(self, service_account_json: dict, location: str = 'US', timeout: int = 30):
         """
         Constructor for BigQueryConnector class
