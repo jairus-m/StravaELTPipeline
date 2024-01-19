@@ -139,7 +139,7 @@ class StravaETL():
         """
         try:
             # self.extract() raw dataframe as an argument for self.transform() 
-            df = self.transform(self.extract())
+            df = self.extract()
             df.columns = df.columns.str.replace('.', '_')
 
             # project.dataset.table format
