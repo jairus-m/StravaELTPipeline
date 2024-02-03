@@ -19,6 +19,7 @@ Strava API --> Python --> BigQuery
 - orchestration through Google Cloud Services
 - data storage through BigQuery 
 - final data transformations with business logic through dbt
+    - [dbt strava project](https://github.com/jairus-m/dbt-strava/tree/main)
 - Containerization via Docker
 - BI dashboard via Looker Studio
 - ETL job notifications sent through Slack 
