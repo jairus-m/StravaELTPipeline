@@ -1,8 +1,8 @@
-# Strava ETL
+# Strava ELT
 
 ### Demo Project
 
-The goal of this project is to try and implement the skeleton of a robust ETL pipeline. Things to consider are:
+The goal of this project is to try and implement the skeleton of a robust ELT pipeline. Things to consider are:
 - version control
 - development flow
 - file project structure
@@ -13,7 +13,7 @@ The goal of this project is to try and implement the skeleton of a robust ETL pi
 - general best practives for data engineering 
 - containerization
 
-### Overall ETL pipeline
+### Overall ELT pipeline
 Strava API --> Python --> BigQuery
 - light data transformation with Pandas
 - orchestration through Google Cloud Services
@@ -22,15 +22,15 @@ Strava API --> Python --> BigQuery
     - [dbt strava project](https://github.com/jairus-m/dbt-strava/tree/main)
 - Containerization via Docker
 - BI dashboard via Looker Studio
-- ETL job notifications sent through Slack 
+- ELT job notifications sent through Slack 
 
 ### Deployment
 - Python application is containerized and pushed to Google Cloud Artifact Registry
 - Container is then deployed on Cloud Run Jobs at a set schedule
-- Every midnight, the ETL pipeline is ran, checking for new data to upload to BigQuery
+- Every midnight, the ELT pipeline is ran, checking for new data to upload to BigQuery
 - At job completion, a Slack notification with job meta data and success status is sent
 
 ### Folder structure
-- configs : .yml file with API tokens, db user/password, ETL params
+- configs : .yml file with API tokens, db user/password, ELT params
 - src : source code
 - tests : unit tests
