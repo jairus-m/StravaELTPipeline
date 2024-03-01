@@ -21,7 +21,7 @@ Strava API --> Python --> BigQuery
 - final data transformations with business logic through dbt
     - [dbt strava project](https://github.com/jairus-m/dbt-strava/tree/main)
 - Containerization via Docker
-- BI dashboard via Looker Studio
+- BI dashboard via [Tableau](https://public.tableau.com/app/profile/jairusmartinez/viz/PersonalStravaActivityData/Dashboard1)
 - ELT job notifications sent through Slack 
 
 ### Deployment
