@@ -8,7 +8,8 @@ The goal of this project is to implement the skeleton of a robust ELT pipeline. 
 - file project structure
 - unit testing
 - logging
-- installable packages
+- documentation
+- virtual enviornments/dependency management
 - orchestration
 - general best practices for data engineering 
 - containerization
