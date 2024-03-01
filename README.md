@@ -21,8 +21,10 @@ Strava API --> Python --> BigQuery
 - final data transformations with business logic through dbt
     - [dbt strava project](https://github.com/jairus-m/dbt-strava/tree/main)
 - Containerization via Docker
-- BI dashboard via [Tableau](https://public.tableau.com/app/profile/jairusmartinez/viz/PersonalStravaActivityData/Dashboard1)
 - ELT job notifications sent through Slack 
+- Downstream analytics supported by this pipeline
+    - dashboard via [Tableau](https://public.tableau.com/app/profile/jairusmartinez/viz/PersonalStravaActivityData/Dashboard1)
+    - Cycling ML model via [Python/Sklearn](https://www.kaggle.com/code/jairusmartinez/cycling-energy-regression?trk=public_profile_project-button) 
 
 ### Deployment
 - Python application is containerized and pushed to Google Cloud Artifact Registry
