@@ -13,7 +13,7 @@ The goal of this project is to implement the skeleton of a robust ELT pipeline. 
 - orchestration
 - general best practices for data engineering 
 - containerization
-- support downstream analytics/ML
+- supporting downstream analytics/ML
 
 ### Overall ELT pipeline
 Strava API --> Python --> BigQuery
