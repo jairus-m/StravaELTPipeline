@@ -16,7 +16,7 @@ The goal of this project is to implement the skeleton of a robust ELT pipeline. 
 - supporting downstream analytics/ML
 
 ### Overall ELT pipeline
-Strava API --> Python --> BigQuery
+Strava API --> Python --> BigQuery + dbt --> Tableau/ML in Jupyter Notebook
 - light data transformation with Pandas
 - orchestration through Google Cloud Services
 - data storage through BigQuery 
