@@ -2,7 +2,7 @@
 
 ### Demo Project
 
-The goal of this project is to try and implement the skeleton of a robust ELT pipeline. Things to consider are:
+The goal of this project is to implement the skeleton of a robust ELT pipeline. Things to consider are:
 - version control
 - development flow
 - file project structure
@@ -10,8 +10,9 @@ The goal of this project is to try and implement the skeleton of a robust ELT pi
 - logging
 - installable packages
 - orchestration
-- general best practives for data engineering 
+- general best practices for data engineering 
 - containerization
+- support downstream analytics/ML
 
 ### Overall ELT pipeline
 Strava API --> Python --> BigQuery
@@ -24,7 +25,7 @@ Strava API --> Python --> BigQuery
 - ELT job notifications sent through Slack 
 - Downstream analytics supported by this pipeline
     - dashboard via [Tableau](https://public.tableau.com/app/profile/jairusmartinez/viz/PersonalStravaActivityData/Dashboard1)
-    - Cycling ML model via [Python/Sklearn](https://www.kaggle.com/code/jairusmartinez/cycling-energy-regression?trk=public_profile_project-button) 
+    - cycling ML model via [Python/Sklearn](https://www.kaggle.com/code/jairusmartinez/cycling-energy-regression?trk=public_profile_project-button) 
 
 ### Deployment
 - Python application is containerized and pushed to Google Cloud Artifact Registry
