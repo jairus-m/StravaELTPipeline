@@ -38,3 +38,7 @@ Strava API --> Python --> BigQuery + dbt --> Tableau/ML in Jupyter Notebook
 - configs : .yml file with API tokens, db user/password, ELT params
 - src : source code
 - tests : unit tests
+
+### Diagram
+![StravaELT](https://github.com/jairus-m/StravaELTPipeline/assets/114552516/06993b00-cd2e-4d2e-aabb-314e962335ec)
+
