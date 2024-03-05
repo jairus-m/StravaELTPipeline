@@ -1,6 +1,6 @@
 # Strava ELT
 
-![StravaELT](https://github.com/jairus-m/StravaELTPipeline/assets/114552516/06993b00-cd2e-4d2e-aabb-314e962335ec)
+![StravaELT](https://github.com/jairus-m/StravaELTPipeline/assets/114552516/cfd065cc-58fb-4fb2-9dd6-1fbb87787a09)
 
 ### Demo Project
 
