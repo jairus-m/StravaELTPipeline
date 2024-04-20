@@ -22,7 +22,7 @@ Strava API --> Python --> BigQuery + dbt --> Tableau/ML in Jupyter Notebook
 - light data transformation with Pandas
 - orchestration through Google Cloud Services
 - data storage through BigQuery 
-- final data transformations with business logic through dbt
+- final data transformations (dimensional modeling + OBT) for downstream analytics through dbt
     - [dbt strava project](https://github.com/jairus-m/dbt-strava/tree/main)
 - Containerization via Docker
 - ELT job notifications sent through Slack 
